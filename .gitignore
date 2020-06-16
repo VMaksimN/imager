@@ -1,3 +1,4 @@
 build
 *.zip
 ..gitignore.kate-swp
+.code.cpp.kate-swp

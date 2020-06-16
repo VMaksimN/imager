@@ -185,9 +185,7 @@ void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles
 
 int calc_green(uint8_t*** image, int R, int height, int width)
 {
-    // Set critical radius
-        
-	int counter = 0;
+    int counter = 0;
 	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
@@ -197,45 +195,49 @@ int calc_green(uint8_t*** image, int R, int height, int width)
             int z = image[i][j][2];
                         
             if (x^2 + (y-255)^2 + z^2 < R^2)
-            {
-                counter++;
-                
-            }
-            
-			/*if(image[i][j][0] < sens_r && image[i][j][1] >= sens_g && image[i][j][2] < sens_b)
-			{
-				counter++;
-				image[i][j][0] = 0;
-				image[i][j][1] = 0;
-				image[i][j][2] = 0;
-			}
-			else
-			{
-				image[i][j][0] = 255;
-				image[i][j][1] = 255;
-				image[i][j][2] = 255;
-			}
-			*/
+                counter++;            
 		}
 	}
 	return counter;
 }
 
 
-int main() 
+int main(int argc, char *argv[]) 
 {
+    // Initialize vars
+    
     int width = 0; 
     int height = 0; 
     int bpp = 0;
-    /*
-    int sens_r = 0;
-    int sens_g = 0;
-    int sens_b = 0;
-    */
     int R = 0;
     int save = 0;
     string command; 
     string path;
+    
+    // Starting in quiet mode if command line args are supplied
+    if (argc > 1){
+        
+        // Display help message and quit
+        if (argv[1] == "--help\n" || argv[1] == "-h\n")
+        {
+            cout << "Usage: " << argv[0] << "[filenames]" << endl;
+            return 0;
+        }
+        
+        for (int i = 1; i < argc; i++)
+        {
+            path = argv[i];
+            uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
+            
+            // Setting critical radius by default
+            R = 50;
+            
+            cout << "For image " << argv[i] <<" green is\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
+        }
+        return 0;
+    }
+    
+    // Starting in interactive mode if no command line arguments supplied
     
     cout << "Enter full image name with extension:\t";
     cin >> path;
@@ -248,25 +250,9 @@ int main()
     cout << "Enter critical radius:\t";
 	cin >> R;
     
-    /*
-    cout << "Enter the sens_r(0 - 256):\t";
-	cin >> sens_r;
-	cout << "\n";
-	cout << "Enter the sens_g(0 - 256):\t";
-	cin >> sens_g;
-	cout << "\n";
-	cout << "Enter the sens_b(0 - 256):\t";
-	cin >> sens_b;
-	cout << "\n";
-    */
 	cout << "Green\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
-	cout << "Save? (0 or 1)";
-	cin >> save;
-	if(save == 1)
-	{
-		path[path.length() - 5] = '_';
-		write_RGB_JPEG_Image(image, height, width, get_Path(path));
-	}
-
+	cout << "Press enter to finish...";
+	cin;
+	
     return 0;
 }
