@@ -174,7 +174,7 @@ char* get_Path(string path)
 
 int calc_error(int** error)
 {
-	
+	return 0;
 }
 
 void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles, int** particles_sizes, int particles_num, int mosaic_coeff)
@@ -182,11 +182,42 @@ void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles
 	
 }
 
+
+int calc_green(uint8_t*** image, int sens_r, int sens_g, int sens_b, int height, int width)
+{
+	int counter = 0;
+	for(int i = 0; i < height; i++)
+	{
+		for(int j = 0; j < width; j++)
+		{
+			if(image[i][j][0] < sens_r && image[i][j][1] >= sens_g && image[i][j][2] < sens_b)
+			{
+				counter++;
+				image[i][j][0] = 0;
+				image[i][j][1] = 0;
+				image[i][j][2] = 0;
+			}
+			else
+			{
+				image[i][j][0] = 255;
+				image[i][j][1] = 255;
+				image[i][j][2] = 255;
+			}
+		}
+	}
+	return counter;
+}
+
+
 int main() 
 {
     int width = 0; 
     int height = 0; 
     int bpp = 0;
+    int sens_r = 0;
+    int sens_g = 0;
+    int sens_b = 0;
+    int save = 0;
     string command; 
     string path;
     
@@ -197,54 +228,23 @@ int main()
     cout << "Image " << path << " loaded" << endl;
     cout << "Height: " << height << endl;
     cout << "Width: " << width << endl;
-    
-    
-    while(true)
-    {
-		cout << "I need " << endl;
-		cout << "0. Decrease number of colors" << endl;
-		cout << "1. Pixelize the image" << endl;
-		cout << "2. Save the image" << endl;
-    
-		cin >> command;
-    
-		if(command == "0")
-		{
-		
-						double red;
-						double green;
-						double blue; 
-						cout << "Enter the coefficients for red, green and blue channels:" << endl;
-					
-						cout << "Red: ";
-						cin >> red;
-					
-						cout << "Green: ";
-						cin >> green;
-					
-						cout << "Blue: ";
-						cin >> blue;
-					
-						color_Decrease(image, red, green, blue, height, width);
-						
-		}
-		else if(command == "1")
-		{
-						double coef;
-						cout << "Enter the coefficient of pixelization: ";
-						cin >> coef;
-						pixelize(image, coef, height, width);
-		}	
-		else if(command == "2")
-		{				//Лучше всего получать рабочий каталог приложения или создать специальный
-						write_RGB_JPEG_Image(image, height, width, "/home/user/Загрузки/Ball0.jpg");
-						break;
-		}
-		else
-		{
-			cout<<"Unexpected command";
-		}
+	cout << "Enter the sens_r(0 - 256):\t";
+	cin >> sens_r;
+	cout << "\n";
+	cout << "Enter the sens_g(0 - 256):\t";
+	cin >> sens_g;
+	cout << "\n";
+	cout << "Enter the sens_b(0 - 256):\t";
+	cin >> sens_b;
+	cout << "\n";
+	cout << "Green\t" << (double)((double)calc_green(image, sens_r, sens_g, sens_b, height, width) / (double)(width * height)) * 100 << "%\n";
+	cout << "Save? (0 or 1)";
+	cin >> save;
+	if(save == 1)
+	{
+		path[path.length() - 5] = '_';
+		write_RGB_JPEG_Image(image, height, width, get_Path(path));
 	}
-    
+
     return 0;
 }
