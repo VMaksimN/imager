@@ -1,5 +1,7 @@
 //#include <stdint.h>
 #include <iostream>
+//#include <cmath>
+
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 #include <string>
@@ -193,8 +195,10 @@ int calc_green(uint8_t*** image, int R, int height, int width)
             int x = image[i][j][0];
             int y = image[i][j][1];
             int z = image[i][j][2];
+            
+            //cout << x << " " << y << " " << z << endl;
                         
-            if (x^2 + (y-255)^2 + z^2 < R^2)
+            if (pow(x, 2) + pow(y-255, 2) + pow(z, 2) < pow(R, 2))
                 counter++;            
 		}
 	}
@@ -230,7 +234,7 @@ int main(int argc, char *argv[])
             uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
             
             // Setting critical radius by default
-            R = 50;
+            R = 255;
             
             cout << "For image " << argv[i] <<" green is\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
         }
