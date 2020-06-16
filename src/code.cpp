@@ -183,14 +183,26 @@ void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles
 }
 
 
-int calc_green(uint8_t*** image, int sens_r, int sens_g, int sens_b, int height, int width)
+int calc_green(uint8_t*** image, int R, int height, int width)
 {
+    // Set critical radius
+        
 	int counter = 0;
 	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
-		{
-			if(image[i][j][0] < sens_r && image[i][j][1] >= sens_g && image[i][j][2] < sens_b)
+        {
+            int x = image[i][j][0];
+            int y = image[i][j][1];
+            int z = image[i][j][2];
+                        
+            if (x^2 + (y-255)^2 + z^2 < R^2)
+            {
+                counter++;
+                
+            }
+            
+			/*if(image[i][j][0] < sens_r && image[i][j][1] >= sens_g && image[i][j][2] < sens_b)
 			{
 				counter++;
 				image[i][j][0] = 0;
@@ -203,6 +215,7 @@ int calc_green(uint8_t*** image, int sens_r, int sens_g, int sens_b, int height,
 				image[i][j][1] = 255;
 				image[i][j][2] = 255;
 			}
+			*/
 		}
 	}
 	return counter;
@@ -214,9 +227,12 @@ int main()
     int width = 0; 
     int height = 0; 
     int bpp = 0;
+    /*
     int sens_r = 0;
     int sens_g = 0;
     int sens_b = 0;
+    */
+    int R = 0;
     int save = 0;
     string command; 
     string path;
@@ -228,7 +244,12 @@ int main()
     cout << "Image " << path << " loaded" << endl;
     cout << "Height: " << height << endl;
     cout << "Width: " << width << endl;
-	cout << "Enter the sens_r(0 - 256):\t";
+	
+    cout << "Enter critical radius:\t";
+	cin >> R;
+    
+    /*
+    cout << "Enter the sens_r(0 - 256):\t";
 	cin >> sens_r;
 	cout << "\n";
 	cout << "Enter the sens_g(0 - 256):\t";
@@ -237,7 +258,8 @@ int main()
 	cout << "Enter the sens_b(0 - 256):\t";
 	cin >> sens_b;
 	cout << "\n";
-	cout << "Green\t" << (double)((double)calc_green(image, sens_r, sens_g, sens_b, height, width) / (double)(width * height)) * 100 << "%\n";
+    */
+	cout << "Green\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
 	cout << "Save? (0 or 1)";
 	cin >> save;
 	if(save == 1)

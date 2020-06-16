@@ -1,0 +1,3 @@
+/home/lasest/Working folder/Практика по ботанике/imager/out/CMakeFiles/rebuild_cache.dir
+/home/lasest/Working folder/Практика по ботанике/imager/out/CMakeFiles/edit_cache.dir
+/home/lasest/Working folder/Практика по ботанике/imager/out/CMakeFiles/imager.dir
