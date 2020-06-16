@@ -1,5 +1,3 @@
 build
 *.zip
-CMakeLists.txt
-out
-.*
+..gitignore.kate-swp
