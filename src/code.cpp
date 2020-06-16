@@ -234,7 +234,7 @@ int main(int argc, char *argv[])
             uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
             
             // Setting critical radius by default
-            R = 255;
+            R = 215;
             
             cout << "For image " << argv[i] <<" green is\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
         }
