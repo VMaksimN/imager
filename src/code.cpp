@@ -228,6 +228,8 @@ int main(int argc, char *argv[])
             return 0;
         }
         
+        int summ = 0;
+        
         for (int i = 1; i < argc; i++)
         {
             path = argv[i];
@@ -236,8 +238,16 @@ int main(int argc, char *argv[])
             // Setting critical radius by default
             R = 215;
             
-            cout << "For image " << argv[i] <<" green is\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
+            double cover = (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100;
+            
+            summ += cover;
+            
+            cout << "For image " << argv[i] <<" green is\t" << cover << "%\n";
         }
+        
+        cout << argc - 1 << " images prosesed." << endl;
+        cout << "Average green coverage: " << summ / (argc - 1) << "%" << endl;
+        
         return 0;
     }
     
