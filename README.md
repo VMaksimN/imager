@@ -22,13 +22,21 @@ imager
 
 ## How to compile
 
-1. Run cmake:
+You would need git, cmake, make, g++.
+
+1. Clone the repo to get source code
+
+```
+git clone https://github.com/VMaksimN/imager.git
+```
+
+2. Run cmake
 
 ```
 cmake -S [path to source] -B [path to build directory]
 ```
 
-2. Go to the build directory you specified in the previous step and run:
+3. Go to the build directory you specified in the previous step and run
 
 ```
 make
