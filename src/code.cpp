@@ -1,9 +1,4 @@
-//#include <stdint.h>
 #include <iostream>
-//#include <cmath>
-
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 #include <string>
 #include <cmath>
 #define CHANNEL_NUM 3
@@ -13,6 +8,23 @@
 
 using namespace std;
 
+struct user_data{
+    char* paths[1];
+    int radius;
+};
+
+char* get_Path(string path)
+{
+	char* char_path;
+	char_path = new char[path.length()];
+	
+	for(int i = 0; i < path.length(); i++)
+	{
+		char_path[i] = path[i];
+	}
+	
+	return char_path;
+}
 
 uint8_t*** load_RGB_Image(const char* path, int& width, int& height, int& bpp)
 {
@@ -38,153 +50,6 @@ uint8_t*** load_RGB_Image(const char* path, int& width, int& height, int& bpp)
 	return image;
 }
 
-void write_RGB_PNG_Image(uint8_t*** image, int height, int width, const char* path)
-{
-	uint8_t* im = new uint8_t[height * width * 3];
-	
-	for(int i = 0; i < height; i++)
-	{
-		for(int j = 0; j < width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * width * 3 + j * 3 + k] = image[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_png(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
-}
-
-void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* path)
-{
-	uint8_t* im = new uint8_t[height * width * 3];
-	
-	for(int i = 0; i < height; i++)
-	{
-		for(int j = 0; j < width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * width * 3 + j * 3 + k] = image[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
-}
-
-void color_Decrease(uint8_t*** image, double red_coeff, double green_coeff, double blue_coeff, int height, int width)
-{
-	if(red_coeff == 0)
-	{
-		red_coeff = 1;
-	}
-		
-	if(green_coeff == 0)
-	{
-		green_coeff = 1;
-	}
-		
-	if(blue_coeff == 0)
-	{
-		blue_coeff = 1;
-	}	
-	
-	for(int i = 0; i < height; i++)
-	{
-		for(int j = 0; j < width; j++)
-		{
-			image[i][j][0] = round((double)image[i][j][0] / red_coeff) * red_coeff;
-			image[i][j][1] = round((double)image[i][j][1] / green_coeff) * green_coeff;
-			image[i][j][2] = round((double)image[i][j][2] / blue_coeff) * blue_coeff;
-		}
-	}
-}
-
-void pixelize(uint8_t*** image, double coeff, int height, int width)
-{
-	uint16_t sum_red = 0;
-	uint16_t sum_green = 0;
-	uint16_t sum_blue = 0;
-	
-	uint8_t aver_red = 0;
-	uint8_t aver_green = 0;
-	uint8_t aver_blue = 0;
-	
-	int h_lim = 0;
-	int w_lim = 0;
-	
-	for(int i = 0; i < height; i+=coeff)
-	{
-		for(int j = 0; j < width; j+=coeff)
-		{
-			h_lim = i + coeff;
-			if(h_lim > height)
-			{
-				h_lim = height;
-			}
-			
-			w_lim = j + coeff;
-			if(w_lim > width)
-			{
-				w_lim = width;
-			}
-			for(int k = i; k < h_lim; k++)
-			{
-				for(int l = j; l < w_lim; l++)
-				{
-					sum_red += image[k][l][0];
-					sum_green += image[k][l][1];
-					sum_blue += image[k][l][2];
-				}
-			}
-			aver_red = sum_red / (coeff * coeff);
-			aver_green = sum_green / (coeff * coeff);
-			aver_blue = sum_blue / (coeff * coeff);
-			
-			for(int k = i; k < h_lim; k++)
-			{
-				for(int l = j; l < w_lim; l++)
-				{
-					image[k][l][0] = aver_red;
-					image[k][l][1] = aver_green;
-					image[k][l][2] = aver_blue;
-				}
-			}
-			
-			sum_red = 0;
-			sum_green = 0;
-			sum_blue = 0;
-		}
-	}
-}
-
-char* get_Path(string path)
-{
-	char* char_path;
-	char_path = new char[path.length()];
-	
-	for(int i = 0; i < path.length(); i++)
-	{
-		char_path[i] = path[i];
-	}
-	
-	return char_path;
-}
-
-
-int calc_error(int** error)
-{
-	return 0;
-}
-
-void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles, int** particles_sizes, int particles_num, int mosaic_coeff)
-{
-	
-}
-
-
 int calc_green(uint8_t*** image, int R, int height, int width)
 {
     int counter = 0;
@@ -196,8 +61,6 @@ int calc_green(uint8_t*** image, int R, int height, int width)
             int y = image[i][j][1];
             int z = image[i][j][2];
             
-            //cout << x << " " << y << " " << z << endl;
-                        
             if (pow(x, 2) + pow(y-255, 2) + pow(z, 2) < pow(R, 2))
                 counter++;            
 		}
@@ -205,68 +68,72 @@ int calc_green(uint8_t*** image, int R, int height, int width)
 	return counter;
 }
 
-
-int main(int argc, char *argv[]) 
-{
-    // Initialize vars
+void process_images(int image_count, char** paths, int radius){
     
-    int width = 0; 
-    int height = 0; 
-    int bpp = 0;
-    int R = 0;
-    int save = 0;
-    string command; 
-    string path;
-    
-    // Starting in quiet mode if command line args are supplied
-    if (argc > 1){
+    int summ = 0;
+       
+    for (int i = 0; i < image_count; i++)
+    {
+        int width = 0;
+        int height = 0;
+        int bpp = 0;
         
-        // Display help message and quit
-        if (argv[1] == "--help\n" || argv[1] == "-h\n")
-        {
-            cout << "Usage: " << argv[0] << "[filenames]" << endl;
-            return 0;
-        }
+        uint8_t*** image = load_RGB_Image(get_Path(paths[i]), width, height, bpp);
         
-        int summ = 0;
-        
-        for (int i = 1; i < argc; i++)
-        {
-            path = argv[i];
-            uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
+        double cover = (double)((double)calc_green(image, radius, height, width) / (double)(width * height)) * 100;
             
-            // Setting critical radius by default
-            R = 215;
-            
-            double cover = (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100;
-            
-            summ += cover;
-            
-            cout << "For image " << argv[i] <<" green is\t" << cover << "%\n";
-        }
-        
-        cout << argc - 1 << " images prosesed." << endl;
-        cout << "Average green coverage: " << summ / (argc - 1) << "%" << endl;
-        
-        return 0;
+        summ += cover;
+           
+        cout << "For image " << paths[i] <<" green is\t" << cover << "%\n";
     }
+        
+    cout << image_count << " images prosesed." << endl;
+    cout << "Average green coverage: " << summ / (image_count) << "%" << endl;    
     
-    // Starting in interactive mode if no command line arguments supplied
+}
+
+user_data get_user_data(){
+    
+    user_data data;
+    string path;
     
     cout << "Enter full image name with extension:\t";
     cin >> path;
-    uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
-    
-    cout << "Image " << path << " loaded" << endl;
-    cout << "Height: " << height << endl;
-    cout << "Width: " << width << endl;
-	
+    data.paths[0] = get_Path(path);
+        
     cout << "Enter critical radius:\t";
-	cin >> R;
+	cin >> data.radius;
     
-	cout << "Green\t" << (double)((double)calc_green(image, R, height, width) / (double)(width * height)) * 100 << "%\n";
-	cout << "Press enter to finish...";
-	cin;
-	
+    return data;
+}
+
+int main(int argc, char *argv[]) 
+{
+    
+    // Initialize vars
+    int radius = 215;
+    
+    // Starting in quiet mode if command line args are supplied
+    
+    // Display help message and quite
+    if ((argc > 1) && (argv[1] == "--help\n" || argv[1] == "-h\n")) {
+        cout << "Usage: " << argv[0] << "[filenames]" << endl;
+        return 0;
+    }   
+    
+    if (argc == 1) {
+        user_data data = get_user_data();
+        process_images(1, data.paths, data.radius);
+    }
+    else {
+        char* paths[argc - 1];
+    
+        for (int i = 1; i < argc; i++){
+            paths[i-1] = argv[i];
+        }
+        
+        process_images(argc - 1, paths, radius);
+    }
+    
     return 0;
 }
