@@ -4,12 +4,60 @@
 #include "stb_image_write.h"
 #include <string>
 #include <cmath>
+#include "colors.h"
 #define CHANNEL_NUM 3
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 using namespace std;
+
+vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width)
+{
+	vector<pair<int, int>> result;
+	double min_dis = 99999999999999;
+	double dis = 0;
+	int index = 0;
+	double red_sq;
+	double green_sq;
+	double blue_sq;
+	result.push_back(make_pair(index, 0));
+	for(int i = 0; i < height; i++)
+	{
+		for(int j = 0; j < width; j++)
+		{
+			for(int k = 0; k < colors.size(); k++)
+			{
+				red_sq = pow(image[i][j][0] - colors[k].red, 2);
+				green_sq = pow(image[i][j][1] - colors[k].green, 2);
+				blue_sq = pow(image[i][j][2] - colors[k].blue, 2);
+				dis = pow((red_sq + green_sq + blue_sq), 0.5);
+				if(dis < min_dis)
+				{
+					min_dis = dis;
+					index = k;
+					if(dis == 0)
+					{
+						break;
+					}
+				}
+			}
+			for(int k = 0; k < result.size(); k++)
+			{
+				if(result[k].first == index)
+				{
+					result[k].second++;
+					break;
+				}
+				if(k == result.size() - 1)
+				{
+					result.push_back(make_pair(index, 1));
+				}
+			} 
+		}
+	}
+	return result;
+}
 
 
 uint8_t*** load_RGB_Image(const char* path, int& width, int& height, int& bpp)
@@ -183,68 +231,27 @@ void make_mosaic(uint8_t*** mosaic, int height, int width, uint8_t**** particles
 }
 
 int main() 
-{
-    int width = 0; 
-    int height = 0; 
-    int bpp = 0;
-    string command; 
-    string path;
-    
-    cout << "Enter full image name with extension:\t";
-    cin >> path;
-    uint8_t*** image = load_RGB_Image(get_Path(path), width, height, bpp);
-    
-    cout << "Image " << path << " loaded" << endl;
-    cout << "Height: " << height << endl;
-    cout << "Width: " << width << endl;
-    
-    
-    while(true)
-    {
-		cout << "I need " << endl;
-		cout << "0. Decrease number of colors" << endl;
-		cout << "1. Pixelize the image" << endl;
-		cout << "2. Save the image" << endl;
-    
-		cin >> command;
-    
-		if(command == "0")
-		{
-		
-						double red;
-						double green;
-						double blue; 
-						cout << "Enter the coefficients for red, green and blue channels:" << endl;
-					
-						cout << "Red: ";
-						cin >> red;
-					
-						cout << "Green: ";
-						cin >> green;
-					
-						cout << "Blue: ";
-						cin >> blue;
-					
-						color_Decrease(image, red, green, blue, height, width);
-						
-		}
-		else if(command == "1")
-		{
-						double coef;
-						cout << "Enter the coefficient of pixelization: ";
-						cin >> coef;
-						pixelize(image, coef, height, width);
-		}	
-		else if(command == "2")
-		{				//Лучше всего получать рабочий каталог приложения или создать специальный
-						write_RGB_JPEG_Image(image, height, width, "/home/user/Загрузки/Ball0.jpg");
-						break;
-		}
-		else
-		{
-			cout<<"Unexpected command";
-		}
+{	
+	int width = 0;
+	int height = 0;
+	int bpp = 3;
+	string sPath;
+	cout << "Path:\t";
+	cin >> sPath;
+	cout << "\n";
+	const char* path = get_Path(sPath); 
+	uint8_t*** image = load_RGB_Image(path, width, height, bpp);
+	vector<pair<int, int>> a = calcColors(image, height, width);
+	
+	for(int i = 0; i < a.size(); i++)
+	{
+		cout << colors[a[i].first].name << "\t" <<
+			((double)a[i].second / (double)(height * width)) * 100 << "\n";
 	}
-    
-    return 0;
+	
+	
+	
+	
+	
+
 }

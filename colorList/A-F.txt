@@ -1,0 +1,333 @@
+176 191 26	Acid_green
+124 185 232	Air_Force_blue - Aero
+192 232 213	Aero_blue
+178 132 190	African_violet_(color)
+114 160 193	Air_Force_blue - Air_superiority_blue/PRU_blue
+237 234 224	Shades_of_white - Alabaster
+240 248 255	Alice_blue
+196 98 16	Shades_of_orange - Alloy_orange
+239 222 205	Almond_(color)
+229 43 80	Amaranth_(color)
+159 43 104	Amaranth_(color) - Amaranth_deep_purple
+241 156 187	Amaranth_(color) - Amaranth_pink
+171 39 79	Amaranth_(color) - Amaranth_purple
+211 33 45	Amaranth_(color)
+59 122 87	Amazon_(color)
+255 191 0	Amber_(color)
+255 126 0	Amber_(color) - SAE/ECE_amber
+153 102 204	Amethyst_(color)
+164 198 57	Android_green
+205 149 117	Antique_brass
+102 93 30	Antique_bronze
+145 92 131	Fuchsia_(color) - Antique_fuchsia
+132 27 45	Ruby_(color) - Antique_ruby
+250 235 215	Shades_of_white - Antique_white
+0 128 0	Ao_(color)
+141 182 0	Chartreuse_(color) - Apple_green
+251 206 177	Apricot_(color)
+0 255 255	Aqua_(color)
+127 255 212	Aquamarine_(color)
+208 255 20	Lime_(color) - Arctic_lime
+75 83 32	Shades_of_green - Army_green
+143 151 121	Shades_of_green - Artichoke
+233 214 107	Arylide_yellow
+178 190 181	Shades_of_gray - Ash_gray
+135 169 107	Shades_of_green - Asparagus
+255 153 102	Shades_of_orange - Atomic_tangerine
+165 42 42	Auburn_(color)
+253 238 0	Aureolin
+86 130 3	Chartreuse_(color) - Avocado
+0 127 255	Azure_(color)
+240 255 255	Shades_of_azure - Azure_(web_color)
+137 207 240	Baby_blue
+161 202 241	Baby_blue - Baby_blue_eyes
+244 194 194	Shades_of_pink - Baby_pink
+254 254 250	Shades_of_white - Baby_powder
+255 145 175	Baker-Miller_pink
+250 231 181	List_of_Crayola_crayon_colors - Standard_colors
+218 24 132	Shades_of_pink - Barbie_pink
+124 10 2	Shades_of_red - Barn_red
+132 132 130	Battleship_grey
+188 212 230	Baby_blue - Beau_blue
+159 129 112	Shades_of_brown - Beaver
+245 245 220	Beige
+46 88 148	Sapphire_(color) - B'dazzled_blue
+156 37 66	Ruby_(color) - Big_dip_o'ruby
+255 228 196	X11_color_names - Color_name_charts
+61 43 31	Bistre
+150 113 23	Bistre - Bistre_brown
+202 224 13	Lemon_(color) - Bitter_lemon
+191 255 0	Lime_(color)
+254 111 94	Shades_of_orange - Bittersweet
+191 79 81	Shades_of_orange - Bittersweet_shimmer
+0 0 0	Black
+61 12 2	Shades_of_black - Black_bean
+27 24 17	Shades_of_black - Black_chocolate
+59 47 47	Shades_of_black - Black_coffee
+84 98 111	List_of_Crayola_crayon_colors - Pearl_Brite
+59 60 54	Olive_(color) - Black_olive
+191 175 178	List_of_Crayola_crayon_colors - Heads_'n_Tails
+255 235 205	X11_color_names
+165 113 100	Bronze_(color) - Blast-off_bronze
+49 140 231	Bleu_de_France_(colour)
+172 229 238	List_of_Crayola_crayon_colors - Fluorescent_crayons
+250 240 190	Blond
+102 0 0	Blood_red
+0 0 255	Blue
+31 117 254	Shades_of_blue - Blue_(Crayola)
+0 147 175	Shades_of_blue - Blue_(Munsell)
+0 135 189	Shades_of_blue - Blue_(NCS)_(psychological_primary_blue)
+0 24 168	Shades_of_blue - Blue_(Pantone)
+51 51 153	Shades_of_blue - Blue_(CMYK)_(pigment_blue)
+2 71 254	RYB_color_model
+162 162 208	List_of_Crayola_crayon_colors - Standard_colors
+102 153 204	Blue-gray
+13 152 186	Blue-green
+6 78 64	Blue-green - Blue-green_(color_wheel)
+93 173 236	List_of_Crayola_crayon_colors - Heads_'n_Tails
+18 97 128	Sapphire_(color) - Blue_sapphire
+138 43 226	Indigo - Deep_indigo_(web_color_blue-violet)
+115 102 189	Violet_(color)
+77 26 127	Violet_(color)
+80 114 167	Air_Force_blue - Blue_yonder
+60 105 231	List_of_Crayola_crayon_colors
+222 93 131	Red-violet - Blush
+121 68 59	Bole_(color)
+227 218 201	Shades_of_white - Bone
+0 106 78	Shades_of_green - Bottle_green
+135 65 63	Shades_of_brown - Brandy
+203 65 84	List_of_Crayola_crayon_colors - Standard_colors
+102 255 0	Shades_of_green - Bright_green
+216 145 239	Lilac_(color) - Bright_lilac
+195 33 72	Maroon - Bright_maroon
+25 116 210	Navy_blue - Bright_navy_blue
+255 170 29	List_of_Crayola_crayon_colors - Heads_'n_Tails
+255 85 163	Rose_(color) - Brilliant_rose
+251 96 127	Rose_(color) - Brink_pink
+0 66 37	British_racing_green
+205 127 50	Bronze_(color)
+136 84 11	Brown
+175 110 77	List_of_Crayola_crayon_colors - Heads_'n_Tails
+27 77 62	Shades_of_green - Brunswick_green
+123 182 97	Spring_bud - Bud_green
+240 220 130	Buff_(colour)
+128 0 32	Burgundy_(color)
+222 184 135	X11_color_names - Color_name_charts
+161 122 116	List_of_Crayola_crayon_colors - Silver_Swirls
+204 85 0	Shades_of_orange - Burnt_orange
+233 116 81	Burnt_sienna
+138 51 36	Burnt_umber
+189 51 164	Byzantium_(color) - Byzantine
+112 41 99	Byzantium_(color)
+83 104 114	Cadet_grey - Cadet
+95 158 160	Cadet_grey - Cadet_blue
+169 178 195	Cadet_grey - Cadet_blue_(Crayola)
+145 163 176	Cadet_grey
+0 107 60	Cadmium_pigments
+237 135 45	Cadmium_pigments
+227 0 34	Cadmium_pigments
+255 246 0	Cadmium_pigments
+166 123 91	Coffee_(color) - Café_au_Lait
+75 54 33	Coffee_(color) - Café_Noir
+163 193 173	Cambridge_Blue_(colour)
+193 154 107	Camel_(color) - Camel
+239 187 204	Shades_of_pink - Cameo_pink
+255 255 153	History_of_Crayola_crayons - Crayola_No._64
+255 239 0	Shades_of_yellow - Yellow_(CMYK)_(process_yellow)_(canary_yellow)
+255 8 0	Candy_apple_red
+228 113 122	Candy_apple_red - Candy_pink
+0 191 255	Sky_blue - Deep_sky_blue
+89 39 32	Caput_mortuum_(pigment)
+196 30 58	Cardinal_(color)
+0 204 153	Spring_green - Caribbean_green
+150 0 24	Carmine_(color)
+215 0 64	Carmine_(color) - Rich_carmine
+255 166 201	Carnation_pink
+179 27 27	Carnelian_(color)
+86 160 211	Carolina_blue
+237 145 33	Shades_of_orange - Carrot_orange
+0 86 63	Shades_of_green - Castleton_green
+112 54 66	Catawba_(grape) - Catawba_(color)
+201 90 73	List_of_Crayola_crayon_colors - Magic_Scent
+172 225 175	Shades_of_green - Celadon
+0 123 167	Shades_of_cyan - Cerulean
+47 132 124	Shades_of_green - Celadon_green
+178 255 255	Sky_blue - Celeste
+36 107 206	Isatis_tinctoria
+222 49 99	Cerise_(color)
+0 123 167	Cerulean
+42 82 190	Cerulean - Cerulean_blue
+109 155 195	Cerulean - Cerulean_frost
+29 172 214	Cerulean - Cerulean_(Crayola)
+0 122 165	CG_Blue
+224 60 49	CG_Red
+247 231 206	Champagne_(color) - Champagne
+241 221 207	Shades_of_pink - Other_notable_pink_colors
+54 69 79	Shades_of_gray - Charcoal
+35 43 43	Shades_of_black_(colors) - Charleston_green
+230 143 172	Shades_of_pink - Charm_pink
+223 255 0	Chartreuse_(color)
+127 255 0	Chartreuse_(color)
+255 183 197	Shades_of_pink - Cherry_blossom_pink
+149 69 53	Chestnut_(color)
+222 111 161	Shades_of_pink - China_pink
+168 81 110	Rose_(color) - China_rose
+170 56 30	Vermilion - Chinese_red_2
+133 96 136	Shades_of_violet - Chinese_violet
+255 178 0	Shades_of_yellow - Chinese_yellow
+123 63 0	Chocolate_(color)
+210 105 30	Chocolate_(color) - Variations_of_chocolate
+255 167 0	Chrome_yellow
+152 129 123	Cinereous
+227 66 52	Vermilion
+205 96 126	List_of_Crayola_crayon_colors - Silver_Swirls
+228 208 10	Citrine_(colour)
+158 169 31	Lemon_(color) - Citron
+127 23 52	Wine_(color) - Claret
+0 71 171	Cobalt_blue
+210 105 30	Chocolate_(color) - Variations_of_chocolate
+111 78 55	Coffee_(color)
+185 217 235	Columbia_Blue
+248 131 121	Shades_of_pink - Congo_pink
+140 146 172	Shades_of_gray - Cool_gray
+184 115 51	Copper_(color)
+218 138 103	Copper_(color) - Variations_of_copper
+173 111 105	Copper_(color) - Copper_penny
+203 109 81	Copper_(color) - Copper_red
+153 102 102	Copper_(color) - Copper_rose
+255 56 0	Coquelicot
+255 127 80	Coral_(color)
+248 131 121	Coral_(color) - Coral_pink
+137 63 69	Cordovan_(color)
+251 236 93	Corn_(color)
+100 149 237	Cornflower_blue
+255 248 220	Shades_of_white - Cornsilk
+46 45 136	List_of_Crayola_crayon_colors - Silver_Swirls
+255 248 231	Cosmic_latte
+129 97 60	Coyote_brown
+255 188 217	Shades_of_pink - Cotton_candy
+255 253 208	Cream_(colour)
+220 20 60	Crimson
+158 27 50	Crimson - School_colors
+245 245 245	List_of_Crayola_crayon_colors - Pearl_Brite
+0 255 255	Cyan
+0 183 235	Cyan - Process_cyan
+88 66 124	List_of_Crayola_crayon_colors - Metallic_FX
+255 211 0	Shades_of_yellow - Cyber_yellow
+245 111 161	Cyclamen_(color)
+102 102 153	Blue-gray - Dark_blue-gray
+101 67 33	Shades_of_brown - Dark_brown
+93 57 84	Byzantium_(color) - Dark_byzantium
+38 66 139	Cornflower_blue - Dark_cornflower_blue
+0 139 139	Shades_of_cyan - Dark_cyan
+83 104 120	Electric_blue_(color) - Dark_electric_blue
+184 134 11	Goldenrod_(color) - Dark_goldenrod
+1 50 32	Shades_of_green - Dark_green
+0 100 0	Shades_of_green - Dark_green_(X11)
+26 36 33	Jungle_green - Dark_jungle_green
+189 183 107	Khaki_(color) - Dark_khaki
+72 60 50	Lava_(color) - Dark_lava
+83 75 79	Liver_(color) - Dark_liver_(web)
+84 61 55	Liver_(color) - Dark_liver_(horses)
+139 0 139	Shades_of_magenta - Dark_magenta
+74 93 35	Shades_of_green - Dark_moss_green
+85 107 47	Olive_(color) - Dark_olive_green
+255 140 0	Shades_of_orange - Dark_orange_(web_color)
+153 50 204	Orchid_(color) - Dark_orchid
+3 192 60	Shades_of_green - Dark_pastel_green
+48 25 52	Dark_purple
+139 0 0	Maroon_(color) - Dark_red
+233 150 122	Salmon_(color) - Dark_salmon
+143 188 143	X11_color_names - Color_name_charts
+60 20 20	Sienna
+140 190 214	Sky_blue - Dark_sky_blue
+72 61 139	X11_color_names - Color_name_charts
+47 79 79	Slate_gray - Dark_slate_gray
+23 114 69	Spring_green - Dark_spring_green
+0 206 209	Turquoise_(color) - Dark_Turquoise
+148 0 211	Shades_of_violet - Pigment_violet_(web_color_dark_violet)
+0 112 60	Shades_of_green - Dartmouth_green
+85 85 85	Davy%27s_grey
+218 50 135	Cerise_(color) - Deep_cerise
+250 214 165	Champagne_(color) - Deep_champagne
+185 78 72	Chestnut_(color) - Deep_chestnut
+0 75 73	Jungle_green - Deep_jungle_green
+255 20 147	Shades_of_pink - Deep_pink
+255 153 51	Saffron_(color) - India_saffron_or_deep_saffron
+0 191 255	Sky_blue - Deep_sky_blue
+74 100 108	List_of_Crayola_crayon_colors - Metallic_FX
+126 94 96	Taupe - Deep_taupe
+21 96 189	List_of_Crayola_crayon_colors - Standard_colors
+34 67 182	List_of_Crayola_crayon_colors - Heads_'n_Tails
+193 154 107	Desert_sand_(color) - Desert
+237 201 175	Desert_sand_(color)
+105 105 105	Grey - Web_colors
+30 144 255	Dodger_blue
+215 24 104	Rose_(color) - Dogwood_rose
+150 113 23	Desert_sand_(color) - Sand_dune_(Drab)
+0 0 156	Duke_blue
+239 223 187	Shades_of_white - Dutch_white
+225 169 95	Desert_sand_(color) - Earth_yellow
+85 93 80	Shades_of_black_(colors) - Ebony
+194 178 128	Ecru
+27 27 27	Shades_of_black - Eerie_black
+97 64 81	Eggplant_(color)
+240 234 214	Eggshell_(color)
+16 52 166	Egyptian_blue
+125 249 255	Electric_blue_(color)
+0 255 0	Electric_green
+111 0 255	Indigo - Electric_indigo
+204 255 0	Lime_(color) - Electric_lime
+191 0 255	Shades_of_purple - Electric_purple:_2000s
+143 0 255	Shades_of_violet - Electric_violet
+80 200 120	Shades_of_green - Emerald
+108 48 130	Shades_of_purple - Eminence
+27 77 62	Shades_of_green - Brunswick_green
+180 131 149	Lavender_(color) - English_lavender
+171 75 82	Indian_red_(color) - English_red
+204 71 75	List_of_Crayola_crayon_colors
+86 60 92	Shades_of_violet - English_violet
+0 255 64	Erin_(color)
+150 200 162	Eton_blue - Eton_blue
+193 154 107	Fallow_(color)
+128 24 24	Falu_red
+181 51 137	Fuchsia_(color) - Fandango
+222 82 133	Shades_of_pink - Fandango_pink
+244 0 161	Fuchsia_(color) - Fashion_fuchsia
+229 170 112	Fawn_(colour)
+77 93 83	Shades_of_green - Feldgrau
+79 121 66	Shades_of_green - Fern_green
+108 84 30	Desert_sand_(color) - Field_drab
+255 84 112	List_of_Crayola_crayon_colors - Extreme_Twistables_colors
+178 34 34	X11_color_names - Color_name_charts
+206 32 41	Fire_engine_red
+233 92 75	Shades_of_orange - Fire_opal
+226 88 34	Flame_(color)
+238 220 130	Flax_(color)
+162 0 109	Red-violet - Flirt
+255 250 240	Shades_of_white - Floral_white
+21 244 238	Shades_of_blue - Fluorescent_blue
+95 167 119	Shades_of_green - Forest_Green_(Crayola)
+1 68 33	Shades_of_green - UP_Forest_Green
+34 139 34	Shades_of_green - Forest_green
+166 123 91	Beige - French_beige
+133 109 77	Bistre - French_bistre
+0 114 187	Shades_of_azure - French_blue
+253 63 146	Fuchsia_(color) - French_fuchsia
+134 96 142	Lilac_(color) - French_lilac
+158 253 56	Lime_(color) - French_lime
+212 115 212	Mauve - French_mauve_(deep_mauve)
+253 108 158	Shades_of_pink - French_pink
+199 44 72	Raspberry_(color) - French_raspberry
+246 74 138	Rose_(color) - French_rose
+119 181 254	Sky_blue - French_sky_blue
+136 6 206	Shades_of_violet - French_violet
+233 54 167	List_of_Crayola_crayon_colors - Extreme_Twistables_colors
+255 0 255	Fuchsia_(color)
+193 84 193	Fuchsia_(color) - Deep_fuchsia
+204 57 123	Fuchsia_(color) - Fuchsia_purple
+199 67 117	Rose_(color) - Fuchsia_rose
+228 132 0	Fulvous
+135 66 31	List_of_Crayola_crayon_colors - Standard_colors
+
+
