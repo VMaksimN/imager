@@ -207,20 +207,6 @@ void pixelize(uint8_t*** image, double coeff, int height, int width)
 	}
 }
 
-char* get_Path(string path)
-{
-	char* char_path;
-	char_path = new char[path.length()];
-	
-	for(int i = 0; i < path.length(); i++)
-	{
-		char_path[i] = path[i];
-	}
-	
-	return char_path;
-}
-
-
 int calc_error(int** error)
 {
 	
