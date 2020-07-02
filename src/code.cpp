@@ -12,7 +12,7 @@
 
 using namespace std;
 
-vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width)
+vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width, double crit_error)
 {
 	vector<pair<int, int>> result;
 	double min_dis = 99999999999999;
@@ -36,7 +36,7 @@ vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width)
 				{
 					min_dis = dis;
 					index = k;
-					if(dis == 0)
+					if(dis <= crit_error || dis == 0)
 					{
 						break;
 					}
@@ -54,6 +54,7 @@ vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width)
 					result.push_back(make_pair(index, 1));
 				}
 			} 
+			min_dis = 99999999999999;
 		}
 	}
 	return result;
@@ -237,12 +238,13 @@ int main()
 	int bpp = 3;
 	string sPath;
 	cout << "Path:\t";
-	cin >> sPath;
+	getline(cin, sPath);
 	cout << "\n";
-	const char* path = get_Path(sPath); 
+	const char* path = sPath.c_str(); 
+	 //printf(path);
 	uint8_t*** image = load_RGB_Image(path, width, height, bpp);
 	vector<pair<int, int>> a = calcColors(image, height, width);
-	
+ 
 	for(int i = 0; i < a.size(); i++)
 	{
 		cout << colors[a[i].first].name << "\t" <<
