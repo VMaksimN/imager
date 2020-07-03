@@ -126,30 +126,43 @@ void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* p
 }
 
 
-
-int main() 
-{	
-	int width = 0;
-	int height = 0;
-	int bpp = 3;
-	string sPath;
-	cout << "Path:\t";
-	getline(cin, sPath);
-	cout << "\n";
-	const char* path = sPath.c_str(); 
-	 //printf(path);
-	uint8_t*** image = load_RGB_Image(path, width, height, bpp);
-	vector<pair<int, int>> a = calcColors(image, height, width);
- 
-	for(int i = 0; i < a.size(); i++)
+void printMenu()
+{
+	vector<string> menu = 
 	{
-		cout << colors[a[i].first].name << "\t" <<
-			((double)a[i].second / (double)(height * width)) * 100 << "\n";
-	}
+		"Image list",
+		"Load more images",
+		
+		"Color analyzer",
+		
+		"Set a task queue",
+		
+		"Help"
+		
+		"Quit"
+	};
+	cout << "Imager menu:\n";
 	
+	for(int i = 0; i < menu.size(); i++)
+	{
+		cout << i + 1 << ". " << menu[i] << "\n";
+	} 
 	
-	
-	
-	
+}
 
+
+int main(int argc, char *argv[]) 
+{	
+	for(int i = 0; i < argc; i++)
+	{
+		cout << argv[i] << "\n";
+	}
+	string command = "";
+	printMenu();
+	while(command != "q" && command != "exit" && command != "quit")
+	{	
+		cout << "imager> ";
+		cin >> command;
+	}
+	return 0;
 }
