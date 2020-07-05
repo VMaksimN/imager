@@ -38,7 +38,7 @@ You can run the program in two ways:
 imager image1.ext image2.ext image3.ext ...
 ```
 
-where imageN is a path to your photo, .ext means .jpg or .png 
+where imageN is a path to your photo, .ext is .jpg or .png 
 
 2. To start the program without arguments:
 

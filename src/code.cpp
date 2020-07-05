@@ -12,6 +12,9 @@
 
 using namespace std;
 
+const vector<string> imagePaths; 
+const vector<uint8_t***> images; 
+
 //Returns all colors of the image
 //crit_error - max divergence from the standart color
 vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width, double crit_error)
@@ -125,44 +128,22 @@ void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* p
 	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
 }
 
-
-void printMenu()
+void execute(string comm)
 {
-	vector<string> menu = 
+	if(true)
 	{
-		"Image list",
-		"Load more images",
 		
-		"Color analyzer",
-		
-		"Set a task queue",
-		
-		"Help"
-		
-		"Quit"
-	};
-	cout << "Imager menu:\n";
-	
-	for(int i = 0; i < menu.size(); i++)
-	{
-		cout << i + 1 << ". " << menu[i] << "\n";
-	} 
-	
+	}
 }
-
 
 int main(int argc, char *argv[]) 
 {	
-	for(int i = 0; i < argc; i++)
-	{
-		cout << argv[i] << "\n";
-	}
 	string command = "";
-	printMenu();
 	while(command != "q" && command != "exit" && command != "quit")
 	{	
 		cout << "imager> ";
 		cin >> command;
+		execute(command);
 	}
 	return 0;
 }
