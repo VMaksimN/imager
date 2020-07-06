@@ -4,6 +4,8 @@
 #include "stb_image_write.h"
 #include <string>
 #include <cmath>
+#include <algorithm>
+#include <fstream>
 #include "colors.h"
 #define CHANNEL_NUM 3
 
@@ -12,7 +14,7 @@
 
 using namespace std;
 
-const vector<string> imagePaths; 
+const vector<string> pathList; 
 const vector<uint8_t***> images; 
 
 //Returns all colors of the image
@@ -128,22 +130,63 @@ void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* p
 	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
 }
 
+void printPathList()
+{
+	cout << "Paths:\n";
+	for(int i = 0; i < pathList.size(); i++)
+	{
+		cout << i + 1 << ". " << pathList[i] << "\n";
+	}
+}
+
+vector<string> getArguments(string comm)
+{
+	vector<string> result;
+	int space_pos = comm.find(" "); 
+	comm = comm.substr(space_pos + 1, comm.length() - space_pos - 1);
+	for(int i = 0, j = -1; i < comm.length(); i++)
+	{
+		if(comm[i] == ' ')
+		{
+			result.push_back(comm.substr(j + 1, i - (j + 1)));
+			j = i;
+			continue;
+		}
+		if(i == comm.length() - 1)
+		{
+			result.push_back(comm.substr(j + 1, i - j));
+			break;
+		}
+	}
+	
+	return result;
+}
+
 void execute(string comm)
 {
-	if(true)
+	if(comm == "pl")
 	{
-		
+		printPathList();
+	}
+	else if(comm.substr(0,3) == "lis")
+	{
+
 	}
 }
 
 int main(int argc, char *argv[]) 
 {	
+	vector<string> a = getArguments("lis image.png image2.png image1.png image0.png");
+	for(int i = 0; i < a.size(); i++)
+	{
+		cout << a[i] << endl;
+	}
 	string command = "";
-	while(command != "q" && command != "exit" && command != "quit")
+	/*while(command != "q" && command != "exit" && command != "quit")
 	{	
 		cout << "imager> ";
 		cin >> command;
 		execute(command);
-	}
+	}*/
 	return 0;
 }
