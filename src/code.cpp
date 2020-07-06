@@ -1,14 +1,8 @@
-//#include <stdint.h>
 #include <iostream>
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 #include <string>
 #include <cmath>
-#include "colors.h"
-#define CHANNEL_NUM 3
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "image.cpp"
 
 using namespace std;
 
@@ -68,76 +62,36 @@ vector<pair<int, int>> calcColors(uint8_t*** image, int height, int width, doubl
 }
 
 
-uint8_t*** load_RGB_Image(const char* path, int& width, int& height, int& bpp)
-{
-	uint8_t* rgb_image = stbi_load(path, &width, &height, &bpp, 3);
-	uint8_t*** image;
-	image = new uint8_t**[height];
-	
-	for(int i = 0; i < height; i++)
-	{
-		image[i] = new uint8_t*[width];
-		
-		for(int j = 0; j < width; j++)
-		{
-			image[i][j] = new uint8_t[3];
-			
-			for(int k = 0; k < 3; k++)
-			{
-				image[i][j][k] = rgb_image[i * width * 3 + j * 3 + k];
-			}
-	
-		}
-	}
-	return image;
-}
 
-void write_RGB_PNG_Image(uint8_t*** image, int height, int width, const char* path)
-{
-	uint8_t* im = new uint8_t[height * width * 3];
-	
-	for(int i = 0; i < height; i++)
-	{
-		for(int j = 0; j < width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * width * 3 + j * 3 + k] = image[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_png(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
-}
-
-void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* path)
-{
-	uint8_t* im = new uint8_t[height * width * 3];
-	
-	for(int i = 0; i < height; i++)
-	{
-		for(int j = 0; j < width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * width * 3 + j * 3 + k] = image[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
-}
 
 bool execute(string command)
 {
-	if (command == "q" || command == "exit" || command != "quit")
+	if (command == "q" || command == "exit" || command == "quit")
     {
         return true;
     }
     
+    // Testing if image has loaded
     if(true)
 	{
-		
+       Image image("Photos/1.jpg");
+       
+       uint8_t*** canvas = image.get_canvas();
+       
+       	for(int i = 0; i < 100; i++)
+        {
+                       
+            for(int j = 0; j < 100; j++)
+            {
+                                
+                for(int k = 0; k < 3; k++)
+                {
+                    cout << canvas[i][j][k] << endl;
+                }
+        
+            }
+        }
+       
 	}
 	
 	return false;
