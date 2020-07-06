@@ -139,6 +139,31 @@ void printPathList()
 	}
 }
 
+void loadImages(string comm)
+{
+	vector<string> paths = getArguments(comm);
+	for(int i = 0; i < paths.size(); i++)
+	{
+		ifstream file(paths[i]);
+		if(file.good())
+		{
+			//load images
+			continue;
+		}
+		cout << "path " + paths[i] + " is not valid";
+	}
+}
+
+
+void addPaths(string comm)
+{
+	vector<string> paths = getArguments(comm);
+	for(int i = 0; i < paths.size(); i++)
+	{
+		pathList.push_back(paths[i]);
+	}
+}
+
 vector<string> getArguments(string comm)
 {
 	vector<string> result;
@@ -162,6 +187,7 @@ vector<string> getArguments(string comm)
 	return result;
 }
 
+
 void execute(string comm)
 {
 	if(comm == "pl")
@@ -170,7 +196,11 @@ void execute(string comm)
 	}
 	else if(comm.substr(0,3) == "lis")
 	{
-
+		loadImages(comm);
+	}
+	else if(comm.substr(0, 3) == "aip")
+	{
+		addPaths(comm);
 	}
 }
 
