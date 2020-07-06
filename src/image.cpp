@@ -24,6 +24,7 @@ public:
     void write_RGB_PNG_Image(const char* path);
     void write_RGB_JPEG_Image(const char* path);    
     uint8_t*** get_canvas(){return this->canvas;}
+    std::vector<std::pair<int, int>> calcColors(double crit_error);
 };
 
 Image::Image(const char* path){
@@ -89,4 +90,54 @@ void Image::write_RGB_JPEG_Image(const char* path)
 	}
 	
 	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
+}
+
+std::vector<std::pair<int, int>> Image::calcColors(double crit_error)
+{
+	std::vector<std::pair<int, int>> result;
+	double min_dis = 99999999999999;
+	double dis = 0;
+	int index = 0;
+	double red_sq;
+	double green_sq;
+	double blue_sq;
+	result.push_back(std::make_pair(index, 0));
+	for(int i = 0; i < this->height; i++)
+	{
+		for(int j = 0; j < this->width; j++)
+		{
+			//Calc distance between the color of the pixel and the standart color
+			for(int k = 0; k < colors.size(); k++)
+			{
+				red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
+				green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
+				blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
+				dis = pow((red_sq + green_sq + blue_sq), 0.5);
+				if(dis < min_dis)
+				{
+					min_dis = dis;
+					index = k;
+					if(dis <= crit_error || dis == 0)
+					{
+						break;
+					}
+				}
+			}
+			//Write the result to the vector
+			for(int k = 0; k < result.size(); k++)
+			{
+				if(result[k].first == index)
+				{
+					result[k].second++;
+					break;
+				}
+				if(k == result.size() - 1)
+				{
+					result.push_back(std::make_pair(index, 1));
+				}
+			} 
+			min_dis = 99999999999999;
+		}
+	}
+	return result;
 }
