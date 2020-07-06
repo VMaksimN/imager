@@ -128,22 +128,41 @@ void write_RGB_JPEG_Image(uint8_t*** image, int height, int width, const char* p
 	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
 }
 
-void execute(string comm)
+bool execute(string command)
 {
-	if(true)
+	if (command == "q" || command == "exit" || command != "quit")
+    {
+        return true;
+    }
+    
+    if(true)
 	{
 		
 	}
+	
+	return false;
 }
 
 int main(int argc, char *argv[]) 
 {	
+    // Display help message and quit
+    if ((argc > 1) && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
+        cout << endl;
+        
+        // TODO: Add actual usage info after main functionality is implemented
+        cout << "Usage: " << argv[0] << " [filenames]" << endl << endl;
+        cout << "A simple program to calculate the projective cover of grass or foliage projective cover by a photo." << endl;
+        return 0;
+    }   
+    
 	string command = "";
-	while(command != "q" && command != "exit" && command != "quit")
+    bool terminate = false;
+    
+	while(terminate != true)
 	{	
 		cout << "imager> ";
 		cin >> command;
-		execute(command);
+		terminate = execute(command);
 	}
 	return 0;
 }
