@@ -45,38 +45,12 @@ void Image::load_RGB_Image(const char* path)
 
 void Image::write_RGB_PNG_Image(const char* path)
 {
-	uint8_t* im = new uint8_t[this->height * this->width * 3];
-	
-	for(int i = 0; i < this->height; i++)
-	{
-		for(int j = 0; j < this->width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * this->width * 3 + j * 3 + k] = this->canvas[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_png(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
+	stbi_write_png(path, width, height, CHANNEL_NUM, this->get_flat_canvas(), width*CHANNEL_NUM);
 }
 
 void Image::write_RGB_JPEG_Image(const char* path)
 {
-	uint8_t* im = new uint8_t[this->height * this->width * 3];
-	
-	for(int i = 0; i < this->height; i++)
-	{
-		for(int j = 0; j < this->width; j++)
-		{	
-			for(int k = 0; k < 3; k++)
-			{
-				im[i * this->width * 3 + j * 3 + k] = this->canvas[i][j][k];
-			}
-		}
-	}
-	
-	stbi_write_jpg(path, width, height, CHANNEL_NUM, im, width*CHANNEL_NUM);
+	stbi_write_jpg(path, width, height, CHANNEL_NUM, this->get_flat_canvas(), width*CHANNEL_NUM);
 }
 
 std::vector<std::pair<int, int>> Image::calcColors(double crit_error)
@@ -127,4 +101,22 @@ std::vector<std::pair<int, int>> Image::calcColors(double crit_error)
 		}
 	}
 	return result;
+}
+
+uint8_t* Image::get_flat_canvas()
+{
+    uint8_t* flat_canvas = new uint8_t[this->height * this->width * 3];
+	
+	for(int i = 0; i < this->height; i++)
+	{
+		for(int j = 0; j < this->width; j++)
+		{	
+			for(int k = 0; k < 3; k++)
+			{
+				flat_canvas[i * this->width * 3 + j * 3 + k] = this->canvas[i][j][k];
+			}
+		}
+	}
+	
+	return flat_canvas;
 }
