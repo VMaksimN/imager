@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cmath>
 
-#include "image.cpp"
+#include "image.h"
 
 using namespace std;
 

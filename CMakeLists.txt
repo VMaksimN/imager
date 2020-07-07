@@ -4,5 +4,5 @@ project(imager)
 
 include_directories(include)
 set(CMAKE_CXX_FLAGS "-g3")
-add_executable(imager src/code.cpp)
+add_executable(imager src/code.cpp src/image.cpp)
  
