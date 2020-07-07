@@ -5,23 +5,21 @@
 
 #include "image.h"
 
-using namespace std;
-
-const vector<string> imagePaths; 
-const vector<uint8_t***> images; 
+const std::vector<std::string> imagePaths; 
+const std::vector<uint8_t***> images; 
 
 //Returns all colors of the image
 //crit_error - max divergence from the standart color
 
 void show_help_message(char* program_name){
-    cout << endl;
+    std::cout << std::endl;
         
     // TODO: Add actual usage info after main functionality is implemented
-    cout << "Usage: " << program_name << " [filenames]" << endl << endl;
-    cout << "A simple program to calculate the projective cover of grass or foliage projective cover by a photo." << endl;    
+    std::cout << "Usage: " << program_name << " [filenames]" << std::endl << std::endl;
+    std::cout << "A simple program to calculate the projective cover of grass or foliage projective cover by a photo." << std::endl;
 }
 
-bool execute(string command)
+bool execute(std::string command)
 {
 	if (command == "q" || command == "exit" || command == "quit")
     {
@@ -43,7 +41,7 @@ bool execute(string command)
                                 
                 for(int k = 0; k < 3; k++)
                 {
-                    cout << canvas[i][j][k] << endl;
+                    std::cout << canvas[i][j][k] << std::endl;
                 }
         
             }
@@ -62,13 +60,13 @@ int main(int argc, char *argv[])
         return 0;
     }   
     
-	string command = "";
+	std::string command = "";
     bool terminate = false;
     
 	while(terminate != true)
 	{	
-		cout << "imager> ";
-		cin >> command;
+		std::cout << "imager> ";
+		std::cin >> command;
 		terminate = execute(command);
 	}
 	return 0;
