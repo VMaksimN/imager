@@ -1,7 +1,7 @@
 #pragma once
 
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
 
 struct color
 {

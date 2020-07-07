@@ -1,13 +1,16 @@
 #include <iostream>
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 #include <string>
 #include <cmath>
-#include "colors.h"
-#define CHANNEL_NUM 3
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+
+#define CHANNEL_NUM 3
+
+#include "colors.h"
 
 class Image{
 
