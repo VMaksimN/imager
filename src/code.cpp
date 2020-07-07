@@ -27,7 +27,7 @@ bool execute(std::string command)
     }
     
     // Testing if image has loaded
-    if(true)
+    if (true)
 	{
        Image image("Photos/1.jpg");
        
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	std::string command = "";
     bool terminate = false;
     
-	while(terminate != true)
+	while (terminate != true)
 	{	
 		std::cout << "imager> ";
 		std::cin >> command;
