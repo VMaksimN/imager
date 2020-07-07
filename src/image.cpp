@@ -56,6 +56,7 @@ void Image::load_RGB_Image(const char* path)
 	this->canvas = image;
 }
 
+
 void Image::write_RGB_PNG_Image(const char* path)
 {
 	uint8_t* im = new uint8_t[this->height * this->width * 3];
