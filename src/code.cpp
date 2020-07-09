@@ -6,6 +6,8 @@
 #include "image.h"
 
 
+std::vector<Image> images;
+
 void show_help_message(char* program_name){
     std::cout << std::endl;
         
@@ -14,9 +16,9 @@ void show_help_message(char* program_name){
     std::cout << "A simple program to calculate the projective cover of grass or foliage projective cover by a photo." << std::endl;
 }
 
-vector<string> getArguments(string comm)
+std::vector<std::string> getArguments(std::string comm)
 {
-	vector<string> result;
+	std::vector<std::string> result;
 	int space_pos = comm.find(" "); 
 	comm = comm.substr(space_pos + 1, comm.length() - space_pos - 1);
 	for(int i = 0, j = -1; i < comm.length(); i++)
@@ -44,15 +46,36 @@ bool execute(std::string command)
         return true;
     }
     
-    // Testing if image has loaded
-    if(true)
+    //Command pattern
+    //lis /some_dir/image.png /some_dir/imag0.jpg /some_dir/image1.png
+    else if(command.substr(0, 3) == "lis" || command.substr(0, 10) == "loadimages")
 	{
-       Image image("Photos/1.jpg");
+	    std::vector<std::string> arguments = getArguments(command);
+	    for(int i = 0; i < arguments.size(); i++)
+	    {
+	        images.push_back(std::move(Image((arguments[i]).c_str())));
+	    }
+	}
+    else if(command == "help" || command == "h")
+    {
+    	show_help_message("imager");
+    }
+    else if(command == "saveimages" || command == "sis")
+    {
+    	//needs template
+    }
+	
+    return false;
+}
+
+void TEST_load()
+{	// Testing if image has loaded
+	Image image("Photos/1.jpg");
        
-       uint8_t*** canvas = image.get_canvas();
+        uint8_t*** canvas = image.get_canvas();
        
-       	for(int i = 0; i < 100; i++)
-        {
+       for(int i = 0; i < 100; i++)
+       {
                        
             for(int j = 0; j < 100; j++)
             {
@@ -64,10 +87,7 @@ bool execute(std::string command)
         
             }
         }
-       
-	}
 }
-
 
 int main(int argc, char *argv[]) 
 {	
