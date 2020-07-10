@@ -46,14 +46,9 @@ bool execute(std::string command)
         return true;
     }
     
-<<<<<<< HEAD
-    // Testing if image has loaded
-    if (true)
-=======
     //Command pattern
     //lis /some_dir/image.png /some_dir/imag0.jpg /some_dir/image1.png
     else if(command.substr(0, 3) == "lis" || command.substr(0, 10) == "loadimages")
->>>>>>> cui_dev
 	{
 	    std::vector<std::string> arguments = getArguments(command);
 	    for(int i = 0; i < arguments.size(); i++)

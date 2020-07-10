@@ -17,5 +17,6 @@ public:
     void write_RGB_PNG_Image(const char* path);
     void write_RGB_JPEG_Image(const char* path);    
     uint8_t*** get_canvas(){return this->canvas;}
+    uint8_t* get_flat_canvas();
     std::vector<std::pair<int, int>> calcColors(double crit_error);
 };
