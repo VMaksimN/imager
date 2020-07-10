@@ -10,7 +10,6 @@
 
 #define CHANNEL_NUM 3
 
-#include "colors.h"
 #include "image.h"
 
 Image::Image(const char* path){
