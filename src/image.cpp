@@ -141,3 +141,46 @@ int Image::calc_color(int radius, color color)
 	}
 	return counter;
 }
+
+std::vector<int> Image::calc_user_colors(double max_error, std::vector<color> colors)
+{
+	std::vector<int> result(colors.size());
+	double min_dis = 99999999999999;
+	double dis = 0;
+	int index = 0;
+	double red_sq;
+	double green_sq;
+	double blue_sq;
+	result.push_back(0); //the last element contain the number of 'other' colors
+	for(int i = 0; i < this->height; i++)
+	{
+		for(int j = 0; j < this->width; j++)
+		{
+			//Calc distance between the color of the pixel and the standart color
+			for(int k = 0; k < colors.size(); k++)
+			{
+				red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
+				green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
+				blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
+				dis = pow((red_sq + green_sq + blue_sq), 0.5);
+				if(dis < max_error)
+				{
+					if(dis < min_dis)
+					{
+						min_dis = dis;
+						index = k;
+					}
+				}
+				if(k == colors.size() - 1 && min_dis == 99999999999999)
+				{
+					//current color is an 'other' color
+					index = colors.size();
+				}
+			}
+			//Write the result to the vector
+			result[index]++; 
+			min_dis = 99999999999999;
+		}
+	}
+	return result;
+}

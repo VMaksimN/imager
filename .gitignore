@@ -1,4 +1,4 @@
 build
 *.zip 
 *.odg
-/src/code.cpp
+src/code.cpp

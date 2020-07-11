@@ -68,6 +68,24 @@ bool execute(std::string command)
     return false;
 }
 
+void TEST_calc_user_colors()
+{
+	Image im("/home/user/Documents/t.png");
+	std::vector<color> colors
+	{	
+		{10, 204, 7, "Some green"},
+		{0, 0, 0, "Black"},
+		{170, 4, 10, "Some red"},
+	};
+	std::vector<int> colors_pixels = im.calc_user_colors(20, colors);
+	for(int i = 0; i < colors_pixels.size() - 1; i++)
+	{
+		std::cout << colors[i].name << "\t" << ((double)colors_pixels[i] / (double)(1920 * 1080)) * 100 << "\n"; 
+	}
+	
+	std::cout << "Others " << "\t" << ((double)colors_pixels[colors.size()] / (double)(1920 * 1080)) * 100 << "\n";
+}
+
 void TEST_calc_color()
 {
 	Image im("/home/user/Documents/t.png");
@@ -107,7 +125,7 @@ void TEST_load()
 int main(int argc, char *argv[]) 
 {	
 
-	TEST_calc_color();
+	TEST_calc_user_colors();
     // Display help message and quit
     if ((argc > 1) && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
         show_help_message(argv[0]);
