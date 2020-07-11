@@ -68,6 +68,21 @@ bool execute(std::string command)
     return false;
 }
 
+void TEST_calc_color()
+{
+	Image im("/home/user/Documents/t.png");
+	color c
+	{	
+		10,
+		204,
+		7,
+		"Some green"
+	};
+	int pixels = im.calc_color(100, c);
+	std::cout << pixels << "\n";
+	std::cout << c.name << "\t" << ((double)pixels / (double)(1920 * 1080)) * 100; 
+}
+
 void TEST_load()
 {	// Testing if image has loaded
 	Image image("Photos/1.jpg");
@@ -91,6 +106,8 @@ void TEST_load()
 
 int main(int argc, char *argv[]) 
 {	
+
+	TEST_calc_color();
     // Display help message and quit
     if ((argc > 1) && (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)) {
         show_help_message(argv[0]);

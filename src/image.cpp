@@ -119,3 +119,23 @@ uint8_t* Image::get_flat_canvas()
 	
 	return flat_canvas;
 }
+
+int Image::calc_color(int radius, color color)
+{
+	int counter = 0;
+	for(int i = 0; i < this->height; i++)
+	{
+		for(int j = 0; j < this->width; j++)
+		{
+			int x = this->canvas[i][j][0];
+			int y = this->canvas[i][j][1];
+			int z = this->canvas[i][j][2];
+            
+            		if (pow(x - color.red, 2) + pow(y - color.green, 2) + pow(z - color.blue, 2) < pow(radius, 2))
+            		{
+                		counter++;
+                	}            
+		}
+	}
+	return counter;
+}
