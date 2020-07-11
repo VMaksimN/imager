@@ -122,6 +122,8 @@ uint8_t* Image::get_flat_canvas()
 
 int Image::calc_color(int radius, color color)
 {
+	//if distance between color of the current pixel and the shpere center (coordinates of the parameter #color)
+	// is less than shpere radius then counter increases
 	int counter = 0;
 	for(int i = 0; i < this->height; i++)
 	{
