@@ -10,7 +10,6 @@ private:
     int width;
     int height;
     int bpp;
-
 public:
     Image();
     Image(const char* path);
@@ -21,4 +20,7 @@ public:
     uint8_t* get_flat_canvas();
     std::vector<std::pair<int, int>> calcColors(double crit_error);
     int calc_color(int radius, color color);
+    int get_width(){return width;}
+    int get_height(){return height;}
+    int get_bpp(){return bpp;}
 };
