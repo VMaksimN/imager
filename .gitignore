@@ -1,6 +1,6 @@
 build
 *.zip 
 *.odg
-/include/image.h
-/include/colors.h
-/src/image.cpp
+include/image.h
+include/colors.h
+src/image.cpp
