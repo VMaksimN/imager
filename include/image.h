@@ -3,6 +3,30 @@
 #include <vector>
 #include "colors.h"
 
+
+class Shape{
+
+public:
+	//Coordinates of the center of the circle OR
+	//Coordinates of the top left vertex of the rectangle
+	int x0;
+	int y0;
+};
+
+class Circle : Shape{
+
+public:
+	int radius;	
+};
+
+class Rectangle : Shape{
+
+public:
+	//Coordinates of the down right vertex of the rectangle
+	int x;
+	int y;
+};
+
 class Image{
 
 private:
