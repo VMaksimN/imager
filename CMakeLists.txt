@@ -8,8 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_CXX_COMPILER g++)
 set(CMAKE_C_COMPILER gcc++)
+# Set debugging level to max
+set(CMAKE_CXX_FLAGS "-g3")
 
 include_directories(include)
-#set(CMAKE_CXX_FLAGS "-g3")
 add_executable(imager src/code.cpp src/image.cpp src/colors.cpp)
  

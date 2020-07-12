@@ -13,6 +13,7 @@ private:
 public:
     Image();
     Image(const char* path);
+    Image(uint8_t*** image);
     
     void load_RGB_Image(const char* path);
     void write_RGB_PNG_Image(const char* path);

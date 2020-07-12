@@ -16,6 +16,10 @@ Image::Image(const char* path){
     load_RGB_Image(path);    
 }
 
+Image::Image(uint8_t*** image){
+	this->canvas = image;
+}
+
 void Image::load_RGB_Image(const char* path)
 {
 	uint8_t* rgb_image = stbi_load(path, &this->width, &this->height, &this->bpp, 3);
