@@ -11,6 +11,13 @@ protected:
 	//Coordinates of the top left vertex of the rectangle
 	int x0;
 	int y0;
+
+public:
+	int get_x0() {return x0;}
+	int get_y0() {return y0;}
+	
+	void set_x0(int x0) {this->x0 = x0;}
+	void set_y0(int y0) {this->y0 = y0;}
 };
 
 
@@ -24,6 +31,9 @@ public:
 	Circle(int x0, int y0, int radius){this->x0 = x0;
 					   this->y0 = y0;
 					   this->radius = radius;}
+					 
+	int get_radius() {return radius;}
+	void set_radius(int radius) {this->radius = radius;}
 };
 
 
@@ -40,6 +50,12 @@ public:
 					        this->y0 = y0;
 					        this->x = x;
 					        this->y = y;}
+					        
+	int get_x(){return x;}
+	int get_y(){return y;}
+	
+	void set_x(int x){this->x = x;}
+	void set_y(int y){this->y = y;}
 };
 
 class Image{
