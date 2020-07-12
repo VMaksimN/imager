@@ -13,11 +13,16 @@
 #include "image.h"
 
 Image::Image(const char* path){
-    load_RGB_Image(path);    
+    load_RGB_Image(path);   
+    this->selected_area = (Shape*)(new Rectangle(0,0, this->width, this->height));
 }
 
-Image::Image(uint8_t*** image){
+Image::Image(uint8_t*** image, int height, int width, int bpp){
 	this->canvas = image;
+    	this->selected_area = (Shape*)(new Rectangle(0,0, this->width, this->height));
+	this->height = height;
+	this->width = width;
+	this->bpp = bpp;
 }
 
 void Image::load_RGB_Image(const char* path)

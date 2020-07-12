@@ -20,9 +20,10 @@ private:
 	int radius;	
 	
 public:
+	Circle(){}
 	Circle(int x0, int y0, int radius){this->x0 = x0;
 					   this->y0 = y0;
-					   this->radius = radius;};
+					   this->radius = radius;}
 };
 
 
@@ -34,10 +35,11 @@ private:
 	int y;
 	
 public:
+	Rectangle(){}
 	Rectangle(int x0, int y0, int x, int y){this->x0 = x0;
 					        this->y0 = y0;
 					        this->x = x;
-					        this->y = y;};
+					        this->y = y;}
 };
 
 class Image{
@@ -47,11 +49,11 @@ private:
     int width;
     int height;
     int bpp;
-    Shape selected_area;
+    Shape* selected_area;
 public:
     Image();
     Image(const char* path);
-    Image(uint8_t*** image);
+    Image(uint8_t*** image, int height, int width, int bpp);
     
     void load_RGB_Image(const char* path);
     void write_RGB_PNG_Image(const char* path);
