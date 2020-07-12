@@ -6,25 +6,38 @@
 
 class Shape{
 
-public:
+protected:
 	//Coordinates of the center of the circle OR
 	//Coordinates of the top left vertex of the rectangle
 	int x0;
 	int y0;
 };
 
+
 class Circle : Shape{
 
-public:
+private:
 	int radius;	
+	
+public:
+	Circle(int x0, int y0, int radius){this->x0 = x0;
+					   this->y0 = y0;
+					   this->radius = radius;};
 };
+
 
 class Rectangle : Shape{
 
-public:
+private:
 	//Coordinates of the down right vertex of the rectangle
 	int x;
 	int y;
+	
+public:
+	Rectangle(int x0, int y0, int x, int y){this->x0 = x0;
+					        this->y0 = y0;
+					        this->x = x;
+					        this->y = y;};
 };
 
 class Image{
@@ -34,6 +47,7 @@ private:
     int width;
     int height;
     int bpp;
+    Shape selected_area;
 public:
     Image();
     Image(const char* path);
