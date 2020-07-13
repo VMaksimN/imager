@@ -12,3 +12,10 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_actionOpen_triggered()
+{
+    QString filepath = QFileDialog::getOpenFileName(this);
+    QImage image(filepath);
+    ui->ImageLabel->setPixmap(QPixmap::fromImage(image));
+}

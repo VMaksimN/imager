@@ -18,10 +18,35 @@
     <item>
      <layout class="QVBoxLayout" name="ImageLayout">
       <item>
-       <widget class="KImageFilePreview" name="kimagefilepreview">
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
         </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>629</width>
+           <height>409</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="ImageLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -137,7 +162,7 @@
      <x>0</x>
      <y>0</y>
      <width>782</width>
-     <height>35</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -161,11 +186,6 @@
   </action>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KImageFilePreview</class>
-   <extends>QWidget</extends>
-   <header>kimagefilepreview.h</header>
-  </customwidget>
   <customwidget>
    <class>KColorButton</class>
    <extends>QPushButton</extends>

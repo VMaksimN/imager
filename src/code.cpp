@@ -3,6 +3,9 @@
 #include <cstring>
 #include <cmath>
 
+#include <QApplication>
+#include "mainwindow.h"
+
 #include "image.h"
 
 
@@ -97,15 +100,10 @@ int main(int argc, char *argv[])
         return 0;
     }   
     
-	std::string command = "";
-    bool terminate = false;
-    
-	while (terminate != true)
-	{	
-		std::cout << "imager> ";
-		std::cin >> command;
-		terminate = execute(command);
-	}
-	
-	return 0;
+    QApplication app (argc, argv);
+    MainWindow window;
+    window.show();
+
+    return app.exec();
+		
 }

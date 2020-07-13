@@ -22,6 +22,7 @@ HEADERS += include/mainwindow.h include/colors.h include/image.h include/stb_ima
 FORMS += include/mainwindow.ui
 
 INCLUDEPATH += include/
+# INCLUDEPATH /usr/include/KF5/KDELibs4Support/
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
