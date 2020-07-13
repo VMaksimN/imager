@@ -198,6 +198,35 @@ std::vector<unsigned int> Image::calc_user_colors(double max_error, std::vector<
 	return result;
 }
 
+
+void Image::get_selected_pixels()
+{
+	bool was_row = false;
+	this->selected_pixels.clear();
+	for(int i = 0; i < this->height; i++)
+	{
+		for(int j = 0; j < this->width; j++)
+		{
+			if(selected_area->is_point_inside(i,j))
+			{
+				if(!was_row)
+				{
+					std::vector<std::vector<uint8_t>> row;
+					this->selected_pixels.push_back(row);
+					was_row = true;
+				}
+				std::vector<uint8_t> column;
+				column.push_back(this->canvas[i][j][0]);
+				column.push_back(this->canvas[i][j][1]);
+				column.push_back(this->canvas[i][j][2]);
+				this->selected_pixels[i].push_back(column);
+			}
+		}
+		was_row = false;
+	}
+}
+
+
 unsigned int Image::get_width(){return width;}
 unsigned int Image::get_height(){return height;}
 unsigned int Image::get_bpp(){return bpp;}
@@ -214,6 +243,7 @@ unsigned int Shape::get_y0() {return y0;}
 
 void Shape::set_x0(unsigned int x0) {this->x0 = x0;}
 void Shape::set_y0(unsigned int y0) {this->y0 = y0;}
+bool Shape::is_point_inside(unsigned int x, unsigned int y){return false;}
 ////////////////////////////////////
 ////////////////////////////////////
 
@@ -229,6 +259,11 @@ Circle::Circle(unsigned int x0, unsigned int y0, unsigned int radius)
 					 
 unsigned int Circle::get_radius() {return radius;}
 void Circle::set_radius(unsigned int radius) {this->radius = radius;}
+
+bool Circle::is_point_inside(unsigned int x, unsigned int y)
+{
+	return std::pow(x - this->x0, 2) + std::pow(y - this->y0, 2) <= this->radius;
+}
 ////////////////////////////////////
 ////////////////////////////////////
 
@@ -247,6 +282,11 @@ unsigned int Rectangle::get_y(){return y;}
 	
 void Rectangle::set_x(unsigned int x){this->x = x;}
 void Rectangle::set_y(unsigned int y){this->y = y;}
+
+bool Rectangle::is_point_inside(unsigned int x, unsigned int y)
+{
+	return ((x >= this->x0) || (x <= this->x)) && ((y >= this->y0) || (y <= this->y));
+}
 ///////////////////////////////////
 //////////////////////////////////
 

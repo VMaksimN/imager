@@ -18,6 +18,8 @@ public:
 	
 	void set_x0(unsigned int x0);
 	void set_y0(unsigned int y0);
+	
+	virtual bool is_point_inside(unsigned int x, unsigned int y);
 };
 
 
@@ -32,6 +34,8 @@ public:
 					 
 	unsigned int get_radius();
 	void set_radius(unsigned int radius);
+	
+	bool is_point_inside(unsigned int x, unsigned int y) override;
 };
 
 
@@ -51,6 +55,8 @@ public:
 	
 	void set_x(unsigned int x);
 	void set_y(unsigned int y);
+	
+	bool is_point_inside(unsigned int x, unsigned int y) override;
 };
 
 class Image{
@@ -61,6 +67,7 @@ private:
     int height;
     int bpp;
     Shape* selected_area;
+    std::vector<std::vector<std::vector<uint8_t>>> selected_pixels; 
 public:
     Image();
     Image(const char* path);
@@ -79,4 +86,5 @@ public:
     unsigned int get_bpp();
     uint8_t*** get_canvas();
     uint8_t* get_flat_canvas();
+    void get_selected_pixels();
 };
