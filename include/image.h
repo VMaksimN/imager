@@ -59,6 +59,8 @@ public:
 	bool is_point_inside(unsigned int x, unsigned int y) override;
 };
 
+const Rectangle* full_selection = new Rectangle(-1,-1,-1,-1);
+
 class Image{
 
 private:
@@ -67,7 +69,7 @@ private:
     int height;
     int bpp;
     Shape* selected_area;
-    std::vector<std::vector<std::vector<uint8_t>>> selected_pixels; 
+    uint8_t*** selected_pixels; 
 public:
     Image();
     Image(const char* path);
