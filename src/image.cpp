@@ -12,6 +12,10 @@
 
 #include "image.h"
 
+
+
+////////////IMAGE///////////////////////
+/////////////////////////////////////////
 Image::Image(const char* path){
     load_RGB_Image(path);   
     this->selected_area = (Shape*)(new Rectangle(0,0, this->width, this->height));
@@ -193,3 +197,67 @@ std::vector<int> Image::calc_user_colors(double max_error, std::vector<color> co
 	}
 	return result;
 }
+
+int Image::get_width(){return width;}
+int Image::get_height(){return height;}
+int Image::get_bpp(){return bpp;}
+uint8_t*** Image::get_canvas(){return this->canvas;}
+////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+
+
+
+////////SHAPE//////////////////////////
+//////////////////////////////////////
+int Shape::get_x0() {return x0;}
+int Shape::get_y0() {return y0;}
+
+void Shape::set_x0(int x0) {this->x0 = x0;}
+void Shape::set_y0(int y0) {this->y0 = y0;}
+////////////////////////////////////
+////////////////////////////////////
+
+
+//////CIRCLE///////////////////////////
+///////////////////////////////////////
+Circle::Circle(int x0, int y0, int radius)
+{	
+	this->x0 = x0;
+	this->y0 = y0;
+	this->radius = radius;
+}
+					 
+int Circle::get_radius() {return radius;}
+void Circle::set_radius(int radius) {this->radius = radius;}
+////////////////////////////////////
+////////////////////////////////////
+
+///////RECTANGLE///////////////////
+///////////////////////////////////
+Rectangle::Rectangle(int x0, int y0, int x, int y)
+{	
+	this->x0 = x0;
+	this->y0 = y0;
+	this->x = x;
+	this->y = y;
+}
+					        
+int Rectangle::get_x(){return x;}
+int Rectangle::get_y(){return y;}
+	
+void Rectangle::set_x(int x){this->x = x;}
+void Rectangle::set_y(int y){this->y = y;}
+///////////////////////////////////
+//////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,11 +13,11 @@ protected:
 	int y0;
 
 public:
-	int get_x0() {return x0;}
-	int get_y0() {return y0;}
+	int get_x0();
+	int get_y0();
 	
-	void set_x0(int x0) {this->x0 = x0;}
-	void set_y0(int y0) {this->y0 = y0;}
+	void set_x0(int x0);
+	void set_y0(int y0);
 };
 
 
@@ -28,12 +28,10 @@ private:
 	
 public:
 	Circle(){}
-	Circle(int x0, int y0, int radius){this->x0 = x0;
-					   this->y0 = y0;
-					   this->radius = radius;}
+	Circle(int x0, int y0, int radius);
 					 
-	int get_radius() {return radius;}
-	void set_radius(int radius) {this->radius = radius;}
+	int get_radius();
+	void set_radius(int radius);
 };
 
 
@@ -46,16 +44,13 @@ private:
 	
 public:
 	Rectangle(){}
-	Rectangle(int x0, int y0, int x, int y){this->x0 = x0;
-					        this->y0 = y0;
-					        this->x = x;
-					        this->y = y;}
+	Rectangle(int x0, int y0, int x, int y);
 					        
-	int get_x(){return x;}
-	int get_y(){return y;}
+	int get_x();
+	int get_y();
 	
-	void set_x(int x){this->x = x;}
-	void set_y(int y){this->y = y;}
+	void set_x(int x);
+	void set_y(int y);
 };
 
 class Image{
@@ -79,9 +74,9 @@ public:
     int calc_color(int radius, color color);
     std::vector<int> calc_user_colors(double max_error, std::vector<color> colors);
     
-    int get_width(){return width;}
-    int get_height(){return height;}
-    int get_bpp(){return bpp;}
-    uint8_t*** get_canvas(){return this->canvas;}
+    int get_width();
+    int get_height();
+    int get_bpp();
+    uint8_t*** get_canvas();
     uint8_t* get_flat_canvas();
 };
