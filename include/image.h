@@ -9,29 +9,29 @@ class Shape{
 protected:
 	//Coordinates of the center of the circle OR
 	//Coordinates of the top left vertex of the rectangle
-	int x0;
-	int y0;
+	unsigned int x0;
+	unsigned int y0;
 
 public:
-	int get_x0();
-	int get_y0();
+	unsigned int get_x0();
+	unsigned int get_y0();
 	
-	void set_x0(int x0);
-	void set_y0(int y0);
+	void set_x0(unsigned int x0);
+	void set_y0(unsigned int y0);
 };
 
 
 class Circle : Shape{
 
 private:
-	int radius;	
+	unsigned int radius;	
 	
 public:
 	Circle(){}
-	Circle(int x0, int y0, int radius);
+	Circle(unsigned int x0, unsigned int y0, unsigned int radius);
 					 
-	int get_radius();
-	void set_radius(int radius);
+	unsigned int get_radius();
+	void set_radius(unsigned int radius);
 };
 
 
@@ -39,18 +39,18 @@ class Rectangle : Shape{
 
 private:
 	//Coordinates of the down right vertex of the rectangle
-	int x;
-	int y;
+	unsigned int x;
+	unsigned int y;
 	
 public:
 	Rectangle(){}
-	Rectangle(int x0, int y0, int x, int y);
+	Rectangle(unsigned int x0, unsigned int y0, unsigned int x, unsigned int y);
 					        
-	int get_x();
-	int get_y();
+	unsigned int get_x();
+	unsigned int get_y();
 	
-	void set_x(int x);
-	void set_y(int y);
+	void set_x(unsigned int x);
+	void set_y(unsigned int y);
 };
 
 class Image{
@@ -64,19 +64,19 @@ private:
 public:
     Image();
     Image(const char* path);
-    Image(uint8_t*** image, int height, int width, int bpp);
+    Image(uint8_t*** image, unsigned int height, unsigned int width, unsigned int bpp);
     
     void load_RGB_Image(const char* path);
     void write_RGB_PNG_Image(const char* path);
     void write_RGB_JPEG_Image(const char* path);
     
-    std::vector<std::pair<int, int>> calcColors(double crit_error);
-    int calc_color(int radius, color color);
-    std::vector<int> calc_user_colors(double max_error, std::vector<color> colors);
+    std::vector<std::pair<unsigned int, unsigned int>> calcColors(double crit_error);
+    unsigned int calc_color(unsigned int radius, color color);
+    std::vector<unsigned int> calc_user_colors(double max_error, std::vector<color> colors);
     
-    int get_width();
-    int get_height();
-    int get_bpp();
+    unsigned int get_width();
+    unsigned int get_height();
+    unsigned int get_bpp();
     uint8_t*** get_canvas();
     uint8_t* get_flat_canvas();
 };
