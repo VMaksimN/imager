@@ -30,6 +30,7 @@ set (FORMS
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOUIC_SEARCH_PATHS include)
 
 # Adding qt and kde libraries to include?
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
