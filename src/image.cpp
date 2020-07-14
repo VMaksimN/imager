@@ -207,6 +207,28 @@ std::vector<unsigned int> Image::calc_user_colors(double max_error, std::vector<
 	return result;
 }
 
+static unsigned int calc_color(QImage image, unsigned int radius, color color)
+{
+    unsigned int counter = 0;
+    for(int i = 0; i < image.height(); i++)
+    {
+        for(int j = 0; j < image.width(); j++)
+        {
+            //if(selected_area->is_point_inside(i,j))
+            if (true)
+            {
+                QColor current_color = image.pixelColor(i, j);
+                if (pow(current_color.red() - color.red, 2) + pow(current_color.green() - color.green, 2) + pow(current_color.blue() - color.blue, 2) < pow(radius, 2))
+                {
+                    counter++;
+                }
+            }
+        }
+    }
+    return counter;
+}
+
+
 
 unsigned int Image::get_width(){return width;}
 unsigned int Image::get_height(){return height;}

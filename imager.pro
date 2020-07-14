@@ -16,11 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += src/code.cpp src/mainwindow.cpp src/colors.cpp src/image.cpp src/stb_vorbis.c
+SOURCES += src/code.cpp src/colors.cpp src/image.cpp src/stb_vorbis.c
 
-HEADERS += include/mainwindow.h include/colors.h include/image.h include/stb_image_write.h include/stb_image.h
-
-FORMS += include/mainwindow.ui
+HEADERS += include/colors.h include/image.h include/stb_image_write.h include/stb_image.h
 
 INCLUDEPATH += include/
 # INCLUDEPATH /usr/include/KF5/KDELibs4Support/

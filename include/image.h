@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <QImage>
 #include "colors.h"
 
 
@@ -81,6 +82,8 @@ public:
     std::vector<std::pair<unsigned int, unsigned int>> calcColors(double crit_error);
     unsigned int calc_color(unsigned int radius, color color);
     std::vector<unsigned int> calc_user_colors(double max_error, std::vector<color> colors);
+
+    static unsigned int calc_color(QImage image, unsigned int radius, color color);
     
     unsigned int get_width();
     unsigned int get_height();
