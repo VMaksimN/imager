@@ -21,6 +21,7 @@ private slots:
 
     void on_CalcColorButton_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     void log(QString message);
