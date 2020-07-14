@@ -1,4 +1,5 @@
- QT       += core gui KWidgetsAddons KIOCore KIOFileWidgets KIOWidgets KNTLM
+ QT       += core gui KWidgetsAddons
+ #KIOCore KIOFileWidgets KIOWidgets KNTLM
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
