@@ -2,3 +2,5 @@ build
 *.zip 
 *.odg
 src/code.cpp
+.kdev4
+*.user
