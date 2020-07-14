@@ -60,7 +60,7 @@ public:
 	bool is_point_inside(unsigned int x, unsigned int y) override;
 };
 
-const Rectangle* full_selection = new Rectangle(-1,-1,-1,-1);
+extern const Rectangle* full_selection;
 
 class Image{
 
@@ -83,7 +83,7 @@ public:
     unsigned int calc_color(unsigned int radius, color color);
     std::vector<unsigned int> calc_user_colors(double max_error, std::vector<color> colors);
 
-    static unsigned int calc_color(QImage image, unsigned int radius, color color);
+    static unsigned int calc_color(QImage image, unsigned int radius, QColor color);
     
     unsigned int get_width();
     unsigned int get_height();

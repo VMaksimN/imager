@@ -14,6 +14,7 @@
 
 
 
+
 ////////////IMAGE///////////////////////
 /////////////////////////////////////////
 Image::Image(const char* path){
@@ -207,7 +208,7 @@ std::vector<unsigned int> Image::calc_user_colors(double max_error, std::vector<
 	return result;
 }
 
-static unsigned int calc_color(QImage image, unsigned int radius, color color)
+unsigned int Image::calc_color(QImage image, unsigned int radius, QColor color)
 {
     unsigned int counter = 0;
     for(int i = 0; i < image.height(); i++)
@@ -218,7 +219,7 @@ static unsigned int calc_color(QImage image, unsigned int radius, color color)
             if (true)
             {
                 QColor current_color = image.pixelColor(i, j);
-                if (pow(current_color.red() - color.red, 2) + pow(current_color.green() - color.green, 2) + pow(current_color.blue() - color.blue, 2) < pow(radius, 2))
+                if (pow(current_color.red() - color.red(), 2) + pow(current_color.green() - color.green(), 2) + pow(current_color.blue() - color.blue(), 2) < pow(radius, 2))
                 {
                     counter++;
                 }
@@ -292,6 +293,8 @@ bool Rectangle::is_point_inside(unsigned int x, unsigned int y)
 }
 ///////////////////////////////////
 //////////////////////////////////
+
+const Rectangle* full_selection = new Rectangle(-1,-1,-1,-1);
 
 
 
