@@ -79,37 +79,40 @@ std::vector<std::pair<unsigned int, unsigned int>> Image::calcColors(double crit
 	{
 		for(int j = 0; j < this->width; j++)
 		{
-			//Calc distance between the color of the pixel and the standart color
-			for(int k = 0; k < colors.size(); k++)
+			if(selected_area->is_point_inside(i,j))
 			{
-				red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
-				green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
-				blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
-				dis = pow((red_sq + green_sq + blue_sq), 0.5);
-				if(dis < min_dis)
+				//Calc distance between the color of the pixel and the standart color
+				for(int k = 0; k < colors.size(); k++)
 				{
-					min_dis = dis;
-					index = k;
-					if(dis <= crit_error || dis == 0)
+					red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
+					green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
+					blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
+					dis = pow((red_sq + green_sq + blue_sq), 0.5);
+					if(dis < min_dis)
 					{
-						break;
+						min_dis = dis;
+						index = k;
+						if(dis <= crit_error || dis == 0)
+						{
+							break;
+						}
 					}
 				}
+				//Write the result to the vector
+				for(int k = 0; k < result.size(); k++)
+				{
+					if(result[k].first == index)
+					{
+						result[k].second++;
+						break;
+					}
+					if(k == result.size() - 1)
+					{
+						result.push_back(std::make_pair(index, 1));
+					}
+				} 
+				min_dis = 99999999999999;
 			}
-			//Write the result to the vector
-			for(int k = 0; k < result.size(); k++)
-			{
-				if(result[k].first == index)
-				{
-					result[k].second++;
-					break;
-				}
-				if(k == result.size() - 1)
-				{
-					result.push_back(std::make_pair(index, 1));
-				}
-			} 
-			min_dis = 99999999999999;
 		}
 	}
 	return result;
@@ -142,14 +145,17 @@ unsigned int Image::calc_color(unsigned int radius, color color)
 	{
 		for(int j = 0; j < this->width; j++)
 		{
-			unsigned int x = this->canvas[i][j][0];
-			unsigned int y = this->canvas[i][j][1];
-			unsigned int z = this->canvas[i][j][2];
+			if(selected_area->is_point_inside(i,j))
+			{
+				unsigned int x = this->canvas[i][j][0];
+				unsigned int y = this->canvas[i][j][1];
+				unsigned int z = this->canvas[i][j][2];
             
-            		if (pow(x - color.red, 2) + pow(y - color.green, 2) + pow(z - color.blue, 2) < pow(radius, 2))
-            		{
-                		counter++;
-                	}            
+            			if (pow(x - color.red, 2) + pow(y - color.green, 2) + pow(z - color.blue, 2) < pow(radius, 2))
+            			{
+               	 		counter++;
+               	 	}  
+			}          
 		}
 	}
 	return counter;
@@ -169,61 +175,36 @@ std::vector<unsigned int> Image::calc_user_colors(double max_error, std::vector<
 	{
 		for(int j = 0; j < this->width; j++)
 		{
-			//Calc distance between the color of the pixel and the standart color
-			for(int k = 0; k < colors.size(); k++)
+			if(selected_area->is_point_inside(i,j))
 			{
-				red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
-				green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
-				blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
-				dis = pow((red_sq + green_sq + blue_sq), 0.5);
-				if(dis < max_error)
+				//Calc distance between the color of the pixel and the standart color
+				for(int k = 0; k < colors.size(); k++)
 				{
-					if(dis < min_dis)
+					red_sq = pow(this->canvas[i][j][0] - colors[k].red, 2);
+					green_sq = pow(this->canvas[i][j][1] - colors[k].green, 2);
+					blue_sq = pow(this->canvas[i][j][2] - colors[k].blue, 2);
+					dis = pow((red_sq + green_sq + blue_sq), 0.5);
+					if(dis < max_error)
 					{
-						min_dis = dis;
-						index = k;
+						if(dis < min_dis)
+						{
+							min_dis = dis;
+							index = k;
+						}
+					}
+					if(k == colors.size() - 1 && min_dis == 99999999999999)
+					{
+						//current color is an 'other' color
+						index = colors.size();
 					}
 				}
-				if(k == colors.size() - 1 && min_dis == 99999999999999)
-				{
-					//current color is an 'other' color
-					index = colors.size();
-				}
+				//Write the result to the vector
+				result[index]++; 
+				min_dis = 99999999999999;
 			}
-			//Write the result to the vector
-			result[index]++; 
-			min_dis = 99999999999999;
 		}
 	}
 	return result;
-}
-
-
-void Image::get_selected_pixels()
-{
-	bool was_row = false;
-	this->selected_pixels.clear();
-	for(int i = 0; i < this->height; i++)
-	{
-		for(int j = 0; j < this->width; j++)
-		{
-			if(selected_area->is_point_inside(i,j))
-			{
-				if(!was_row)
-				{
-					std::vector<std::vector<uint8_t>> row;
-					this->selected_pixels.push_back(row);
-					was_row = true;
-				}
-				std::vector<uint8_t> column;
-				column.push_back(this->canvas[i][j][0]);
-				column.push_back(this->canvas[i][j][1]);
-				column.push_back(this->canvas[i][j][2]);
-				this->selected_pixels[i].push_back(column);
-			}
-		}
-		was_row = false;
-	}
 }
 
 

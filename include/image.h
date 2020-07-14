@@ -69,7 +69,6 @@ private:
     int height;
     int bpp;
     Shape* selected_area;
-    uint8_t*** selected_pixels; 
 public:
     Image();
     Image(const char* path);
