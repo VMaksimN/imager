@@ -35,7 +35,7 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS include)
 # Adding qt and kde libraries to include?
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(KF5WidgetsAddons)
-find_package(KF5KIO)
+#find_package(KF5KIO)
 
 # Specify include directories
 include_directories(include build/imager_autogen/include)
@@ -46,4 +46,5 @@ set(CMAKE_CXX_FLAGS "-g3")
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${MOC_HEADERS})
 
-target_link_libraries(imager PRIVATE KF5::WidgetsAddons Qt5::Widgets KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM)
+target_link_libraries(imager PRIVATE KF5::WidgetsAddons Qt5::Widgets)
+# KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
