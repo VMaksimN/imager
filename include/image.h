@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <QImage>
 #include "colors.h"
 
 class Image{
@@ -21,4 +22,5 @@ public:
     uint8_t* get_flat_canvas();
     std::vector<std::pair<int, int>> calcColors(double crit_error);
     int calc_color(uint8_t*** image, int height, int width, int radius, color color);
+    static unsigned int calc_color(QImage image, unsigned int radius, QColor color);
 };
