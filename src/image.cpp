@@ -123,9 +123,9 @@ uint8_t* Image::get_flat_canvas()
 unsigned int Image::calc_color(QImage image, unsigned int radius, QColor color)
 {
     unsigned int counter = 0;
-    for(int i = 0; i < image.height(); i++)
+    for(int i = 0; i < image.width(); i++)
     {
-        for(int j = 0; j < image.width(); j++)
+        for(int j = 0; j < image.height(); j++)
         {
             //if(selected_area->is_point_inside(i,j))
             if (true)

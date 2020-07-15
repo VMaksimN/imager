@@ -27,8 +27,7 @@ void MainWindow::on_actionOpen_triggered()
     }
 
     this->current_image_index = 0;
-    ui->ImageLabel->setPixmap(QPixmap::fromImage(this->Images[this->current_image_index]));
-    ui->CurrentImageLabel->setText("Image " + QString::number(current_image_index + 1) + " of " + QString::number(this->Images.size()));
+    this->update_current_image_preview();
 
     this->log("Image(s) loaded");
     this->log("");
