@@ -8,6 +8,21 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->current_image_index = -1;
+
+    // Checking if current theme is dark or bright
+    QPalette current_palette = this->palette();
+    QColor button_color = current_palette.color(QPalette::Active, QPalette::Button);
+
+    if (button_color.red() + button_color.green() + button_color.blue() < 450) {
+        this->log("Working in dark mode");
+        ui->NextImageToolButton->setIcon(QIcon(":/icons_dark/icons/dark/go-next.svg"));
+        ui->PrevImageToolButton->setIcon(QIcon(":/icons_dark/icons/dark/go-previous.svg"));
+    }
+    else{
+        this->log("Working in bright mode");
+        ui->NextImageToolButton->setIcon(QIcon(":/icons_light/icons/light/go-next.svg"));
+        ui->PrevImageToolButton->setIcon(QIcon(":/icons_light/icons/light/go-previous.svg"));
+    }
 }
 
 MainWindow::~MainWindow()

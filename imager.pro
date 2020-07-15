@@ -30,3 +30,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+RESOURCES += \
+    icons_dark.qrc \
+    icons_dark.qrc \
+    icons_light.qrc \
+    icons_light.qrc
+

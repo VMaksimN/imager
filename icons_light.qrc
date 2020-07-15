@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons_light">
+        <file>icons/light/go-previous.svg</file>
+        <file>icons/light/go-next.svg</file>
+    </qresource>
+</RCC>
