@@ -18,7 +18,50 @@
     <item>
      <layout class="QVBoxLayout" name="ImageLayout">
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QToolButton" name="PrevImageToolButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset theme="arrow-left"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="NextImageToolButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="icon">
+           <iconset theme="arrow-right"/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="CurrentImageLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>No image loaded</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QScrollArea" name="scrollArea">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
@@ -28,20 +71,20 @@
            <x>0</x>
            <y>0</y>
            <width>484</width>
-           <height>409</height>
+           <height>378</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QLabel" name="ImageLabel">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string/>
             </property>
            </widget>
           </item>

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <vector>
 
 namespace Ui {
 class MainWindow;
@@ -21,10 +22,17 @@ private slots:
 
     void on_CalcColorButton_clicked();
 
+    void on_NextImageToolButton_clicked();
+
+    void on_PrevImageToolButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     void log(QString message);
+    void update_current_image_preview();
+
+    std::vector<QImage> Images;
+    int current_image_index;
 };
 
 #endif // MAINWINDOW_H
