@@ -26,6 +26,8 @@ private slots:
 
     void on_PrevImageToolButton_clicked();
 
+    void on_CriticalRadiusSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     void log(QString message);

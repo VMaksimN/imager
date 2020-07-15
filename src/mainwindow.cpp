@@ -55,7 +55,8 @@ void MainWindow::on_CalcColorButton_clicked()
     QColor color = ui->kcolorbutton->color();
 
     this->log("Calculating colors...");
-    float color_percent = float(Image::calc_color(image, 255, color)) / float(image.height() * image.width());
+    // Max sphere radius = 255 * sqrt(3) = 442
+    float color_percent = float(Image::calc_color(image, ui->CriticalRadiusSlider->value(), color)) / float(image.height() * image.width());
 
     this->log("Color " + color.name() + ": " + QString::number(color_percent));
 
@@ -112,4 +113,9 @@ void MainWindow::on_PrevImageToolButton_clicked()
     }
 
     this->update_current_image_preview();
+}
+
+void MainWindow::on_CriticalRadiusSlider_valueChanged(int value)
+{
+    ui->CriticalRadiusLabel->setText("Critical radius: " + QString::number(value));
 }
