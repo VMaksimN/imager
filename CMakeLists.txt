@@ -25,6 +25,11 @@ set (FORMS
  include/mainwindow.ui
 )
 
+set (RESOURCES
+    icons_dark.qrc
+    icons_light.qrc
+    )
+
 
 # Tell cmake to look for qt .ui files at compilation
 set(CMAKE_AUTOMOC ON)
@@ -44,7 +49,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON) # Not sure if this is needed
 # Set debugging flag?
 set(CMAKE_CXX_FLAGS "-g3")
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${MOC_HEADERS})
+add_executable(${PROJECT_NAME} ${SOURCES} ${MOC_HEADERS} ${RESOURCES})
 
 target_link_libraries(imager PRIVATE KF5::WidgetsAddons Qt5::Widgets)
 # KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
