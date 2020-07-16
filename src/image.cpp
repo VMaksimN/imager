@@ -24,14 +24,15 @@ std::vector<unsigned int> ImageCalculator::calc_user_colors(QImage image, double
 	double green_sq;
 	double blue_sq;
 	result.push_back(0); //the last element contain the number of 'other' colors
-	for(int i = 0; i < this->height; i++)
+
+    for(int i = 0; i < image.height(); i++)
 	{
-		for(int j = 0; j < this->width; j++)
+        for(int j = 0; j < image.width(); j++)
 		{
 			//Calc distance between the color of the pixel and the standart color
 			for(int k = 0; k < colors.size(); k++)
 			{
-				current_color = image.pixelColor(i, j);
+                QColor current_color = image.pixelColor(i, j);
 				red_sq = pow(current_color.red() - colors[k].red(), 2);
 				green_sq = pow(current_color.green() - colors[k].green(), 2);
 				blue_sq = pow(current_color.blue() - colors[k].blue(), 2);
@@ -61,9 +62,9 @@ std::vector<unsigned int> ImageCalculator::calc_user_colors(QImage image, double
 unsigned int ImageCalculator::calc_color(QImage image, unsigned int radius, QColor color)
 {
     unsigned int counter = 0;
-    for(int i = 0; i < image.height(); i++)
+    for(int i = 0; i < image.width(); i++)
     {
-        for(int j = 0; j < image.width(); j++)
+        for(int j = 0; j < image.height(); j++)
         {
             //if(selected_area->is_point_inside(i,j))
             if (true)
@@ -78,17 +79,8 @@ unsigned int ImageCalculator::calc_color(QImage image, unsigned int radius, QCol
     }
     return counter;
 }
-
-
-
-unsigned int Image::get_width(){return width;}
-unsigned int Image::get_height(){return height;}
-unsigned int Image::get_bpp(){return bpp;}
-uint8_t*** Image::get_canvas(){return this->canvas;}
 ////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-
-
 
 ////////SHAPE//////////////////////////
 //////////////////////////////////////

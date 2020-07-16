@@ -56,7 +56,7 @@ void MainWindow::on_CalcColorButton_clicked()
 
     this->log("Calculating colors...");
     // Max sphere radius = 255 * sqrt(3) = 442
-    float color_percent = float(Image::calc_color(image, ui->CriticalRadiusSlider->value(), color)) / float(image.height() * image.width());
+    float color_percent = float(ImageCalculator::calc_color(image, ui->CriticalRadiusSlider->value(), color)) / float(image.height() * image.width());
 
     this->log("Color " + color.name() + ": " + QString::number(color_percent));
 

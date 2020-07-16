@@ -9,7 +9,7 @@
 #include "image.h"
 
 
-std::vector<Image> images;
+std::vector<QImage> images;
 
 void show_help_message(char* program_name){
     std::cout << std::endl;
@@ -56,7 +56,9 @@ bool execute(std::string command)
 	    std::vector<std::string> arguments = getArguments(command);
 	    for(int i = 0; i < arguments.size(); i++)
 	    {
-	        images.push_back(std::move(Image((arguments[i]).c_str())));
+
+            QImage image(QString::fromStdString(arguments[i]));
+            images.push_back(image);
 	    }
 	}
     else if(command == "help" || command == "h")
@@ -71,6 +73,8 @@ bool execute(std::string command)
     return false;
 }
 
+// Doesn't compile
+/*
 void TEST_load()
 {	// Testing if image has loaded
 	Image image("Photos/1.jpg");
@@ -91,6 +95,7 @@ void TEST_load()
             }
         }
 }
+*/
 
 int main(int argc, char *argv[]) 
 {	
