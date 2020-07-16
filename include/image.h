@@ -62,34 +62,9 @@ public:
 
 extern const Rectangle* full_selection;
 
-class Image{
+class ImageCalculator{
 
-private:
-    uint8_t*** canvas;
-    int width;
-    int height;
-    int bpp;
-    Shape* selected_area;
 public:
-    Image();
-    Image(const char* path);
-    Image(uint8_t*** image, unsigned int height, unsigned int width, unsigned int bpp);
-    
-    void load_RGB_Image(const char* path);
-    void write_RGB_PNG_Image(const char* path);
-    void write_RGB_JPEG_Image(const char* path);
-    void get_selected_pixels();
-    
-    std::vector<std::pair<unsigned int, unsigned int>> calcColors(double crit_error);
-    unsigned int calc_color(unsigned int radius, color color);
-    std::vector<unsigned int> calc_user_colors(double max_error, std::vector<color> colors);
-
+    static std::vector<unsigned int> Image::calc_user_colors(QImage image, double max_error, std::vector<QColor> colors);
     static unsigned int calc_color(QImage image, unsigned int radius, QColor color);
-    
-    unsigned int get_width();
-    unsigned int get_height();
-    unsigned int get_bpp();
-    uint8_t*** get_canvas();
-    uint8_t* get_flat_canvas();
-
 };
