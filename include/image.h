@@ -62,9 +62,16 @@ public:
 
 extern const Rectangle* full_selection;
 
-class ImageCalculator{
+struct Image_info{
+    QImage image;
+    std::vector<std::pair<QColor, int>> colors;
+};
+
+class ImageCalculator {
 
 public:
     static std::vector<unsigned int> calc_user_colors(QImage image, double max_error, std::vector<QColor> colors);
     static unsigned int calc_color(QImage image, unsigned int radius, QColor color);
+    static int CalcGreen(QImage image, double max_error, int rangeX, int rangeY);
+    static Image_info kmeans_calc(QImage image);
 };

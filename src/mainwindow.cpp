@@ -1,3 +1,4 @@
+#include <cmath>
 #include "include/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "image.h"
@@ -56,9 +57,22 @@ void MainWindow::on_CalcColorButton_clicked()
 
     this->log("Calculating colors...");
     // Max sphere radius = 255 * sqrt(3) = 442
-    float color_percent = float(ImageCalculator::calc_color(image, ui->CriticalRadiusSlider->value(), color)) / float(image.height() * image.width());
+    //float color_percent = float(ImageCalculator::calc_color(image, ui->CriticalRadiusSlider->value(), color)) / float(image.height() * image.width());
+    Image_info info = ImageCalculator::kmeans_calc(image);
 
-    this->log("Color " + color.name() + ": " + QString::number(color_percent));
+    int summ = 0;
+    for (int i = 0; i < basic_colors.size(); i++)
+    {
+        float percent = float(info.colors[i].second) / float(image.height() * image.width());
+        percent = std::round(percent * 1000) / 10;
+
+        this->log(info.colors[i].first.name() + ": " + QString::number(percent));
+        summ += info.colors[i].second;
+    }
+    this->log("Summ: " + QString::number(summ));
+
+
+    //this->log("Color " + color.name() + ": " + QString::number(color_percent));
 
     // Fill example
     //image.fill(QColor("red"));

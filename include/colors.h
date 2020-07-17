@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <QColor>
 
 struct color
 {
@@ -12,3 +13,4 @@ struct color
 };
 
 extern std::vector<color> colors;
+extern std::vector<QColor> basic_colors;

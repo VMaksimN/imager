@@ -1,5 +1,14 @@
 #include "colors.h"
 
+// Rainbow colors + brown, black, white, tan, gray
+std::vector<QColor> basic_colors =
+{
+    QColor("#6d1d7c"), QColor("#002497"), QColor("#82c4e6"), QColor("#028b00"), QColor("#ffff01"),
+    QColor("#ffff01"), QColor("#cd0b01"), QColor("#7b4f2c"), QColor("#ffffff"), QColor("#000000"),
+    QColor("#f1c399"), QColor("#bcbec0")
+};
+
+
 std::vector<color> colors = 
 {
 {176,191,26,"Acid_green"},
