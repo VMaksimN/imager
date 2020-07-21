@@ -1,6 +1,9 @@
+#include <cmath>
+
 #include "include/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "image.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -118,4 +121,25 @@ void MainWindow::on_PrevImageToolButton_clicked()
 void MainWindow::on_CriticalRadiusSlider_valueChanged(int value)
 {
     ui->CriticalRadiusLabel->setText("Critical radius: " + QString::number(value));
+}
+
+// Not finished
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    QImage image(290, 290, QImage::Format_RGB32);
+
+    for (int i = 0; i < 290; i++)
+    {
+        for (int j = 0; j < 290; j++)
+        {
+            float x = i / 0.87;
+            float y = j / 0.87;
+            float z = 0.5 * i + 0.5 * j;
+            QColor color((int)x, (int)y, (int)z);
+            image.setPixelColor(i, j, color);
+        }
+    }
+
+    ui->ImageLabel->setPixmap(QPixmap::fromImage(image));
+
 }
